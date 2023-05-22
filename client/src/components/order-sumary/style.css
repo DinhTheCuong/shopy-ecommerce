@@ -1,0 +1,77 @@
+.order-sumary {
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .14);
+    padding: 20px;
+    width: 46%;
+    font-size: 16px;
+}
+
+.order-sumary-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 32px;
+}
+
+.order-list {
+    margin-bottom: 60px;
+}
+
+.order-item {
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 16px;
+}
+
+.order-quantity {
+    font-size: 16px;
+    font-weight: 600;
+    color: #c61717;
+}
+
+.order-quantity span {
+    font-size: 16px;
+    font-weight: 600;
+    color: #777;
+}
+
+.payment-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.payment-item {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.payment-item input {
+    margin-right: 16px;
+}
+
+.payment-total {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 60px 0 0;
+}
+
+.payment-total span {
+    color: #c61717;
+    font-size: 28px;
+}
+
+@media (max-width: 1024px) {}
+
+@media (min-width: 740px) and (max-width: 1024px) {}
+
+@media (max-width: 739px) {
+    .order-sumary {
+        width: 100%;
+    }
+}

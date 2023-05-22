@@ -1,0 +1,141 @@
+.products-section {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.products-section-title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.products-section-title p {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.products-section-title a {
+    font-size: 16px;
+    text-decoration: none;
+    color: #1868d5;
+}
+
+.view-more-icon {
+    padding: 4px 0 0;
+    font-size: 16px;
+}
+
+.products-sheft {
+    margin: 32px 0 64px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    background-color: #fff;
+    width: 23%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    height: 442px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.09);
+    /* border: 1px solid #1868d5; */
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 36px;
+    overflow: hidden;
+}
+
+.product-img {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: top;
+    justify-content: center;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.btn-add-to-cart {
+    height: 40px;
+    width: 100%;
+    background-color: #1868d5;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-add-to-cart:hover {
+    background-color: #1355b3;
+}
+
+.product-sub {
+    padding: 16px 0 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-to-cart-icon {
+    margin-right: 6px;
+}
+
+.product-star-icon {
+    color: #FFA800;
+    margin-bottom: 20px;
+}
+
+.product-name {
+    font-size: 20px;
+    color: #000;
+    text-decoration: none;
+}
+
+.product-name:hover {
+    color: #1868d5;
+}
+
+.product-price {
+    font-size: 20px;
+    font-weight: 600;
+    color: #d11212;
+    margin: 20px 0;
+}
+
+@media (max-width: 1024px) {
+    .products-section {
+        padding: 0 20px;
+    }
+
+    .product-card {
+        width: 48%;
+    }
+}
+
+@media (min-width: 740px) and (max-width: 1024px) {
+    .hide-on-tablet {
+        display: none;
+    }
+}
+
+@media (max-width: 739px) {
+    .hide-on-mobile {
+        display: none;
+    }
+
+    .products-sheft {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-card {
+        width: 98%;
+    }
+
+}

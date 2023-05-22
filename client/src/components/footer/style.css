@@ -1,0 +1,126 @@
+.footer {
+    border-top: 1px solid #ccc;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-list {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    padding-left: 80px;
+}
+
+.footer-list-title {
+    font-size: 18px;
+    margin-bottom: 32px;
+}
+
+.footer-link {
+    color: #888;
+    font-size: 16px;
+    text-decoration: none;
+    margin: 12px 0;
+}
+
+.footer-link:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+.footer-sub {
+    color: #888;
+    line-height: 32px;
+}
+
+.footer-sign {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px 0;
+    border-top: 1px solid #ccc;
+    color: #888;
+}
+
+.footer-sign-left {
+    display: flex;
+    align-items: center;
+}
+
+.footer-sign-sub {
+    margin-left: 16px;
+}
+
+.footer-sign-sub a {
+    color: #000;
+    text-decoration: none;
+}
+
+.footer-sign-left .footer-sign-icon {
+    font-size: 20px;
+    margin-right: 12px;
+}
+
+.footer-sign-right .footer-sign-icon {
+    font-size: 32px;
+    margin-left: 20px;
+}
+
+@media (max-width: 1024px) {
+    .footer-section {
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+
+    .footer-list {
+        width: 48%;
+        margin-bottom: 40px;
+    }
+
+    .footer-sign {
+        padding: 16px 32px;
+    }
+}
+
+@media (min-width: 740px) and (max-width: 1024px) {
+    .hide-on-tablet {
+        display: none;
+    }
+}
+
+@media (max-width: 739px) {
+    .hide-on-mobile {
+        display: none;
+    }
+
+    .footer-section {
+        flex-direction: column;
+    }
+
+    .footer-list {
+        width: 90%;
+        padding-left: 32px;
+    }
+
+    .footer-sign {
+        flex-direction: column;
+    }
+
+    .footer-sign-left {
+        margin-bottom: 16px;
+        flex-direction: column;
+    }
+
+    .footer-sign-sub {
+        margin-top: 16px;
+        text-align: center;
+    }
+}

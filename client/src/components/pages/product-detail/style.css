@@ -1,0 +1,135 @@
+.product-detail-page {
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.prod-detail-section {
+    display: flex;
+    align-items: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 32px;
+}
+
+.prod-detail-thumb {
+    width: 48%;
+    padding: 14px;
+    margin-right: 32px;
+}
+
+.prod-detail-thumb img {
+    border-radius: 10px;
+    width: 560px;
+    height: 300px;
+    margin-right: 16px;
+}
+
+.slick-slider .slick-next {
+    right: -21px;
+}
+
+.slick-slider .slick-prev:before {
+    color: #555;
+    font-size: 24px;
+}
+
+.slick-slider .slick-next:before {
+    color: #555;
+    font-size: 24px;
+}
+
+.prod-detail-content {
+    width: 48%;
+}
+
+.prod-detail-category {
+    text-transform: uppercase;
+}
+
+.prod-detail-title {
+    font-size: 32px;
+    font-weight: 600;
+    margin: 24px 0 16px;
+}
+
+.prod-detail-brand {
+    color: #555;
+}
+
+.prod-detail-price {
+    color: #bc1a1a;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 24px 0;
+}
+
+.prod-detail-description {
+    color: #555;
+    margin-bottom: 32px;
+}
+
+.prod-detail-amount {
+    height: 40px;
+    width: 100px;
+    display: flex;
+    background-color: #fff;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 24px;
+}
+
+.prod-detail-amount span {
+    color: #777;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.prod-detail-btn {
+    width: 120px;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+    background-color: #1868d5;
+    border: none;
+    border-radius: 6px;
+}
+
+.prod-detail-btn:hover {
+    cursor: pointer;
+    background-color: #1355b3;
+}
+
+.pro-intro {
+    margin-bottom: 32px;
+}
+
+.pro-intro p {
+    text-align: justify;
+}
+
+.prod-intro-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+@media (max-width: 1024px) {
+    .product-detail-page {
+        padding: 0 32px;
+    }
+}
+
+@media (min-width: 740px) and (max-width: 1024px) {}
+
+@media (max-width: 739px) {
+    .prod-detail-section {
+        flex-direction: column;
+    }
+
+    .prod-detail-thumb, .prod-detail-content {
+        width: 100%;
+        margin-right: 0;
+    }
+}

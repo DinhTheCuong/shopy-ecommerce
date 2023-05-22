@@ -1,0 +1,21 @@
+.checkout-page {
+    max-width: 1200px;
+    margin: 40px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 1024px) {
+    .checkout-page {
+        padding: 0 32px;
+    }
+}
+
+@media (min-width: 740px) and (max-width: 1024px) {}
+
+@media (max-width: 739px) {
+    .checkout-page {
+        display: flex;
+        flex-direction: column;
+    }
+}

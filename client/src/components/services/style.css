@@ -1,0 +1,74 @@
+.services {
+    background-image: url('../../assets/images/discount-banner.jpg');
+    width: 100%;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.services-list {
+    width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.service-item {
+    display: flex;
+}
+
+.service-icon {
+    color: #1868d5;
+    font-size: 40px;
+    margin-right: 20px;
+}
+
+.service-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.service-sub {
+    font-size: 14px;
+    color: #8E8E8E;
+}
+
+.service-logo {
+    display: block;
+    width: 160px;
+    margin: 50px auto;
+}
+
+@media (max-width: 1024px) {
+    .services-list {
+        margin: 0 0 0 32px;
+    }
+}
+
+@media (min-width: 740px) and (max-width: 1024px) {
+    .hide-on-tablet {
+        display: none;
+    }
+}
+
+@media (max-width: 739px) {
+    .hide-on-mobile {
+        display: none;
+    }
+
+    .services {
+        padding: 32px 20px 0 0;
+    }
+
+    .services-list {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .service-item {
+        width: 48%;
+        margin-bottom: 32px;
+    }
+}

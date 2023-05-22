@@ -1,0 +1,137 @@
+.login-page {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 30px 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    text-align: center;
+    color: #000;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: #666;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.submit-button {
+    width: 100%;
+    height: 40px;
+    display: block;
+    background-color: #1868d5;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 0;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.submit-button:hover {
+    background-color: #1355b3;
+}
+
+.separator {
+    position: relative;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.separator-text {
+    position: relative;
+    background-color: #ffffff;
+    padding: 0 10px;
+    display: inline-block;
+}
+
+.social-login {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 48%;
+    border: none;
+}
+
+.social-icon {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+.facebook-button {
+    background-color: #1877f2;
+}
+
+.facebook-button:hover {
+    background-color: #155bb5;
+}
+
+.google-button {
+    background-color: #ea4335;
+}
+
+.google-button:hover {
+    background-color: #c72a1f;
+}
+
+.error-message {
+    color: rgb(215, 22, 22);
+    font-size: 12px;
+}
+
+.register-link {
+    font-size: 16px;
+    margin: 24px 0 16px;
+    text-align: center;
+}
+
+.register-link a {
+    text-decoration: none;
+    color: #1868d5;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
