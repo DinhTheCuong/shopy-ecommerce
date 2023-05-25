@@ -22,10 +22,6 @@
     <a href="https://github.com/DinhTheCuong/shopy.git">Request Feature</a>
 </h3>
 
-## TL;DR
-
-You can fork this repo to modify and make changes of your own. Please give me proper credit by linking back to [DinhTheCuong](https://github.com/DinhTheCuong/shopy.git). Thanks!
-
 ## Built With
 
 This project was built using these technologies.
@@ -33,14 +29,13 @@ This project was built using these technologies.
 - HTML5
 - CSS3
 - ReactJS
-- Bootstrap
-- VsCode
+- VSCode
 
 ## Features
 
 **📖 Multi-Page Layout**
 
-**🎨 Styled with React-Bootstrap and Css with easy to customize colors**
+**🎨 CSS with easy to customize colors**
 
 **📱 Fully Responsive**
 
