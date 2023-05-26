@@ -22,10 +22,6 @@
     <a href="https://github.com/DinhTheCuong/shopy.git">Request Feature</a>
 </h3>
 
-## TL;DR
-
-You can fork this repo to modify and make changes of your own. Please give me proper credit by linking back to [DinhTheCuong](https://github.com/DinhTheCuong/shopy.git). Thanks!
-
 ## Built With
 
 This project was built using these technologies.
@@ -33,14 +29,13 @@ This project was built using these technologies.
 - HTML5
 - CSS3
 - ReactJS
-- Bootstrap
-- VsCode
+- VSCode
 
 ## Features
 
 **📖 Multi-Page Layout**
 
-**🎨 Styled with React-Bootstrap and Css with easy to customize colors**
+**🎨 CSS with easy to customize colors**
 
 **📱 Fully Responsive**
 
@@ -58,13 +53,6 @@ Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.
 
-## Usage Instructions
-
-Open the project folder and Navigate to `/src/components/`. <br/>
-You will find all the components used and you can edit your information accordingly.
-
 ### Show your support
 
 Give a ⭐ if you like this website!
-
-<a href="https://www.buymeacoffee.com/cuongdinh" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png" alt="Buy Me A Coffee" height= "60px" width= "217px" ></a>
