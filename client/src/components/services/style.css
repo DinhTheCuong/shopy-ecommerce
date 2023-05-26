@@ -1,74 +1,75 @@
 .services {
-    background-image: url('../../assets/images/discount-banner.jpg');
-    width: 100%;
-    height: 320px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background-image: url('../../assets/images/discount-banner.jpg');
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
 }
 
 .services-list {
-    width: 1200px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .service-item {
-    display: flex;
+  display: flex;
 }
 
 .service-icon {
-    color: #1868d5;
-    font-size: 40px;
-    margin-right: 20px;
+  color: var(--primary-color);
+  font-size: 40px;
+  margin-right: 20px;
 }
 
 .service-name {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 8px;
 }
 
 .service-sub {
-    font-size: 14px;
-    color: #8E8E8E;
+  font-size: 16px;
+  color: #8e8e8e;
 }
 
 .service-logo {
-    display: block;
-    width: 160px;
-    margin: 50px auto;
+  display: block;
+  width: 460px;
+  margin: 0 auto;
 }
 
 @media (max-width: 1024px) {
-    .services-list {
-        margin: 0 0 0 32px;
-    }
+  .services-list {
+    margin: 0 0 0 32px;
+  }
 }
 
 @media (min-width: 740px) and (max-width: 1024px) {
-    .hide-on-tablet {
-        display: none;
-    }
+  .hide-on-tablet {
+    display: none;
+  }
 }
 
 @media (max-width: 739px) {
-    .hide-on-mobile {
-        display: none;
-    }
+  .hide-on-mobile {
+    display: none;
+  }
 
-    .services {
-        padding: 32px 20px 0 0;
-    }
+  .services {
+    padding: 32px 20px 0 0;
+  }
 
-    .services-list {
-        width: 100%;
-        flex-wrap: wrap;
-    }
+  .services-list {
+    width: 100%;
+    flex-wrap: wrap;
+  }
 
-    .service-item {
-        width: 48%;
-        margin-bottom: 32px;
-    }
+  .service-item {
+    width: 48%;
+    margin-bottom: 32px;
+  }
 }

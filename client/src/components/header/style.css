@@ -1,3 +1,26 @@
+/* header tag */
+.header-tag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1200px;
+  margin: 0 auto;
+  padding: 4px 0;
+  font-size: 14px;
+}
+
+.header-tag-addr {
+  display: flex;
+}
+
+.header-tag-addr p {
+  margin-left: 12px;
+}
+
+.header-tag-username span {
+  font-weight: 600;
+}
+
 /* header top */
 .header {
   display: flex;
@@ -5,12 +28,16 @@
   background-color: #fff;
 }
 
+.header-top {
+  border-top: 1px solid #ccc;
+}
+
 .header-top-container {
   display: flex;
-  justify-content: space-evenly;
+  max-width: 1200px;
+  justify-content: space-between;
   align-items: center;
   height: 86px;
-  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -19,7 +46,8 @@
 }
 
 .header-logo {
-  height: 80px;
+  padding: 0 30px;
+  height: 200px;
 }
 
 .header-search {
@@ -45,15 +73,16 @@
 .header-search-btn {
   width: 100px;
   height: 40px;
-  background-color: #1868d5;
+  font-weight: 600;
+  background-color: var(--primary-color);
   border: none;
-  color: #fff;
+  color: var(--text-color);
   border-radius: 4px;
 }
 
 .header-search-btn:hover {
   cursor: pointer;
-  background-color: #1355b3;
+  opacity: 0.9;
 }
 
 .header-link {
@@ -96,12 +125,12 @@
   right: -10px;
   width: 24px;
   height: 24px;
-  background-color: #1868d5;
+  background-color: var(--primary-color);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: var(--text-color);
   border: 1px solid #fff;
 }
 
@@ -115,33 +144,39 @@
 
 .header-user-email {
   margin-left: 32px;
-  color: #1868d5;
+  color: var(--primary-color);
   font-size: 20px;
   cursor: pointer;
 }
 
-.header-user-email:hover .header-logout {
+.header-user:hover .header-logout {
   display: flex;
 }
 
 .header-user .header-logout {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  border-top: 2px solid var(--primary-color);
   position: absolute;
-  left: calc(50% - 32px);
-  margin-top: 8px;
-  width: 64px;
-  height: 32px;
-  font-size: 12px;
-  color: #fff;
-  border-bottom: 1px solid #ccc;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  background-color: #444;
+  right: 0;
+  width: 80px;
+  z-index: 4;
   display: none;
+}
+
+.header-user .header-logout a {
+  width: 100%;
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+.header-user .header-logout a:last-child {
+  border: none;
 }
 
 .header-user .header-logout::before {
@@ -156,20 +191,20 @@
 
 .user-icon {
   font-size: 38px;
-  color: #1868d5;
+  color: var(--primary-color);
 }
 
 .user-icon:hover {
   color: #1355b3;
+  cursor: pointer;
 }
-
 /* header cart list */
 .cart-list {
   position: absolute;
   top: 40px;
   z-index: 1;
   left: -240px;
-  border-top: 2px solid #1868d5;
+  border-top: 2px solid var(--primary-color);
   border-radius: 8px;
   background-color: #fff;
   width: 300px;
@@ -257,16 +292,16 @@
 .view-cart-btn {
   width: 100%;
   height: 40px;
-  color: #fff;
+  color: var(--text-color);
   font-weight: 600;
-  background-color: #1868d5;
+  background-color: var(--primary-color);
   border: none;
   border-radius: 6px;
   margin: 24px 0;
 }
 
 .view-cart-btn a {
-  color: #fff;
+  color: var(--text-color);
 }
 
 .checkout-btn {
@@ -298,7 +333,7 @@
 }
 
 .view-cart-btn:hover {
-  background-color: #1355b3;
+  opacity: 0.8;
   cursor: pointer;
 }
 
@@ -311,7 +346,12 @@
 
 /* header navigation */
 .header-navbar {
-  background-color: #1868d5;
+  /* background-color: var(--primary-color); */
+  background-image: linear-gradient(
+    90deg,
+    #3839af,
+    #ae69dd
+  );
   height: 60px;
 }
 
@@ -357,6 +397,7 @@
   height: 50px;
   width: 272px;
   background-color: #fff;
+  font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -395,6 +436,8 @@
   color: #000;
   overflow: hidden;
   text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
 }
 
 .category-item:last-child a {
@@ -402,8 +445,7 @@
 }
 
 .category-item a:hover {
-  background-color: #1868d5;
-  color: #fff;
+  background-color: var(--primary-color);
 }
 
 .category-item-icon {

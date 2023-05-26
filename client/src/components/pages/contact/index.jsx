@@ -1,8 +1,8 @@
 import React from 'react';
 import './style.css';
-import {AiTwotoneHome} from 'react-icons/ai';
-import {AiTwotonePhone} from 'react-icons/ai';
-import {AiTwotoneMail} from 'react-icons/ai';
+import { AiTwotoneHome } from 'react-icons/ai';
+import { AiTwotonePhone } from 'react-icons/ai';
+import { AiTwotoneMail } from 'react-icons/ai';
 
 const Contact = () => {
   return (
@@ -13,18 +13,32 @@ const Contact = () => {
         className='contact-map'
         allowFullScreen=''
         loading='lazy'
-        referrerPolicy='no-referrer-when-downgrade'></iframe>
+        referrerPolicy='no-referrer-when-downgrade'
+      ></iframe>
       <div className='contact-content'>
         <div className='contact-content-left'>
           <h3 className='contact-content-title'>Contact</h3>
-          <form action='' className='contact-form'>
-            <input type='text' placeholder='Name' />
-            <input type='email' placeholder='Email' />
-            <input type='tel' placeholder='Phone Number' />
+          <form
+            action=''
+            className='contact-form'
+          >
+            <input
+              type='text'
+              placeholder='Name'
+            />
+            <input
+              type='email'
+              placeholder='Email'
+            />
+            <input
+              type='tel'
+              placeholder='Phone Number'
+            />
             <textarea
               name=''
               id=''
-              placeholder='Comments'></textarea>
+              placeholder='Comments'
+            ></textarea>
             <button>Submit</button>
           </form>
         </div>

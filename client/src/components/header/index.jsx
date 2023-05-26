@@ -1,29 +1,30 @@
-import React, {useContext} from 'react';
-import {AppContext} from '../../App.js';
-import {Link, NavLink} from 'react-router-dom';
+import React, { useContext } from 'react';
+import { AppContext } from '../../App.js';
+import { Link, NavLink } from 'react-router-dom';
 import './style.css';
-import logo from '../../assets/images/logo.png';
-import {BsBag} from 'react-icons/bs';
-import {HiUserCircle} from 'react-icons/hi';
-import {HiOutlineBars3CenterLeft} from 'react-icons/hi2';
-import {RiArrowDropDownLine} from 'react-icons/ri';
-import {RiArrowDropRightLine} from 'react-icons/ri';
-import {CiMobile3} from 'react-icons/ci';
-import {CiLaptop} from 'react-icons/ci';
-import {IoGameControllerOutline} from 'react-icons/io5';
-import {CiPalette} from 'react-icons/ci';
-import {MdOutlineDeleteForever} from 'react-icons/md';
-import {HiOutlineBars3BottomLeft} from 'react-icons/hi2';
-import {toast} from 'react-toastify';
+import logo from '../../assets/images/logo2.png';
+import { BsBag } from 'react-icons/bs';
+import { HiUserCircle } from 'react-icons/hi';
+import { HiOutlineBars3CenterLeft } from 'react-icons/hi2';
+import { RiArrowDropDownLine } from 'react-icons/ri';
+import { RiArrowDropRightLine } from 'react-icons/ri';
+import { CiMobile3 } from 'react-icons/ci';
+import { CiLaptop } from 'react-icons/ci';
+import { IoGameControllerOutline } from 'react-icons/io5';
+import { CiPalette } from 'react-icons/ci';
+import { MdOutlineDeleteForever } from 'react-icons/md';
+import { HiOutlineBars3BottomLeft } from 'react-icons/hi2';
+import { GrMapLocation } from 'react-icons/gr';
+import { toast } from 'react-toastify';
 
 const Header = () => {
   const homeValue = useContext(AppContext);
   const handleDelete = (id) => {
     homeValue.setHomeCart(
       homeValue.homeCart.filter(
-        (element) => element.id !== id,
+        (element) => element.id !== id
       ),
-      toast.error('Removed from cart!'),
+      toast.error('Removed from cart!')
     );
   };
   const handleOpenSidebar = () => {
@@ -32,7 +33,7 @@ const Header = () => {
   };
   let numberOfHomeCart = 0;
   homeValue.homeCart.map(
-    (ele) => (numberOfHomeCart += ele.amount),
+    (ele) => (numberOfHomeCart += ele.amount)
   );
   const user = JSON.parse(localStorage.getItem('user'));
   const handleLogout = () => {
@@ -40,6 +41,27 @@ const Header = () => {
   };
   return (
     <div className='header'>
+      <div className='header-tag'>
+        <div className='header-tag-addr'>
+          <GrMapLocation className='header-tag-icon' />
+          <p>
+            29T1 - Hoang Dao Thuy, Trung Hoa, Cau Giay, Ha
+            Noi
+          </p>
+        </div>
+
+        <div className='header-tag-username'>
+          {user ? (
+            <p>
+              Welcome, <span>{user.email}</span>!
+            </p>
+          ) : (
+            <p>
+              Welcome, <span>Guest</span>!
+            </p>
+          )}
+        </div>
+      </div>
       <div className='header-top'>
         <div className='header-top-container'>
           <HiOutlineBars3BottomLeft
@@ -80,7 +102,8 @@ const Header = () => {
                     homeValue.homeCart.map((element) => (
                       <div
                         className='cart-prod-item'
-                        key={element.id}>
+                        key={element.id}
+                      >
                         <img
                           className='cart-prod-img'
                           src={element.thumbnail}
@@ -131,23 +154,22 @@ const Header = () => {
               </div>
             </div>
             <div className='header-user hide-on-tablet hide-on-mobile'>
-              {user ? (
-                <>
-                  <p className='header-user-email'>
-                    {user.email}
-                    <a
-                      href=''
-                      onClick={handleLogout}
-                      className='header-logout'>
-                      Logout
-                    </a>
-                  </p>
-                </>
-              ) : (
-                <Link to='/login'>
-                  <HiUserCircle className='user-icon' />
-                </Link>
-              )}
+              <HiUserCircle className='user-icon' />
+              <div className='header-logout'>
+                {user ? (
+                  <a
+                    href='/'
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </a>
+                ) : (
+                  <>
+                    <Link to='/login'>Login</Link>
+                    <Link to='/register'>Register</Link>
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -193,28 +215,34 @@ const Header = () => {
           </div>
           <div className='header-navbar-list'>
             <div className='header-navbar-item'>
-              <NavLink to='/' className='navbar-item-link'>
+              <NavLink
+                to='/'
+                className='navbar-item-link'
+              >
                 Home Page
               </NavLink>
             </div>
             <div className='header-navbar-item'>
               <NavLink
                 to='/all-products'
-                className='navbar-item-link'>
+                className='navbar-item-link'
+              >
                 All Products
               </NavLink>
             </div>
             <div className='header-navbar-item'>
               <NavLink
                 to='/contact-us'
-                className='navbar-item-link'>
+                className='navbar-item-link'
+              >
                 Contact Us
               </NavLink>
             </div>
             <div className='header-navbar-item'>
               <NavLink
                 to='/about-us'
-                className='navbar-item-link'>
+                className='navbar-item-link'
+              >
                 About Us
               </NavLink>
             </div>

@@ -1,8 +1,8 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './style.css';
 import Slider from 'react-slick';
-import {RiArrowDropRightLine} from 'react-icons/ri';
+import { RiArrowDropRightLine } from 'react-icons/ri';
 
 const HomeSlider = () => {
   const settings = {
@@ -10,8 +10,7 @@ const HomeSlider = () => {
     speed: 4000,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: false,
-    autoplay: true,
+    arrows: true,
   };
   return (
     <div className='slider'>

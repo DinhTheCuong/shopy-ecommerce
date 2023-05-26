@@ -1,26 +1,34 @@
-import React, {useContext} from 'react';
-import {AppContext} from '../../App.js';
-import {Link} from 'react-router-dom';
+import React, { useContext } from 'react';
+import { AppContext } from '../../App.js';
+import { Link } from 'react-router-dom';
 import './style.css';
-import {BsArrowRight} from 'react-icons/bs';
-import {BsBag} from 'react-icons/bs';
-import {AiFillStar} from 'react-icons/ai';
+import { BsArrowRight } from 'react-icons/bs';
+import { BsBag } from 'react-icons/bs';
+import { AiFillStar } from 'react-icons/ai';
 
 const ProductsSection = (props) => {
   const appValue = useContext(AppContext);
-  const viewProducts = appValue.data.slice(0, 8);
+  const viewProducts = appValue.data
+    .sort(() => 0.5 - Math.random())
+    .slice(0, 4);
   return (
     <div className='products-section'>
       <div className='products-section-title'>
         <p>{props.title}</p>
-        <Link to='/all-products' href=''>
+        <Link
+          to='/all-products'
+          href=''
+        >
           View More
           <BsArrowRight className='view-more-icon' />
         </Link>
       </div>
       <div className='products-sheft'>
         {viewProducts.map((element) => (
-          <div className='product-card' key={element.id}>
+          <div
+            className='product-card'
+            key={element.id}
+          >
             <div className='product-img'>
               <img
                 className='product-thumbnail'
@@ -39,7 +47,8 @@ const ProductsSection = (props) => {
                 onClick={() =>
                   appValue.handleGetProd(element)
                 }
-                className='product-name'>
+                className='product-name'
+              >
                 {element.title}
               </Link>
               <p className='product-price'>
@@ -51,7 +60,8 @@ const ProductsSection = (props) => {
               onClick={() =>
                 appValue.handleAddToCart(element)
               }
-              className='btn-add-to-cart'>
+              className='btn-add-to-cart'
+            >
               <BsBag className='add-to-cart-icon' />
               Add To Cart
             </button>

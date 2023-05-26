@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { AppContext } from '../../../App';
-import { BsFacebook } from 'react-icons/bs';
-import { AiFillGoogleCircle } from 'react-icons/ai';
+// import { BsFacebook } from 'react-icons/bs';
+// import { AiFillGoogleCircle } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import authorization from '../../../login';
 import './style.css';
@@ -40,7 +40,8 @@ const LoginPage = () => {
     }
 
     if (password.length < 6) {
-      newErrors.password = 'Passwords must be at least 6 characters';
+      newErrors.password =
+        'Passwords must be at least 6 characters';
       valid = false;
     }
 
@@ -66,7 +67,11 @@ const LoginPage = () => {
             id='email'
             onChange={(e) => setEmail(e.target.value)}
           />
-          {errors.email && <div className='error-message'>{errors.email}</div>}
+          {errors.email && (
+            <div className='error-message'>
+              {errors.email}
+            </div>
+          )}
         </div>
         <div className='form-group'>
           <label htmlFor='password'>Password:</label>
@@ -77,30 +82,35 @@ const LoginPage = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           {errors.password && (
-            <div className='error-message'>{errors.password}</div>
+            <div className='error-message'>
+              {errors.password}
+            </div>
           )}
         </div>
         <button
           type='submit'
-          onClick={() => authorization(email, password, options)}
+          onClick={() =>
+            authorization(email, password, options)
+          }
           className='submit-button'
         >
           Login
         </button>
         <div className='separator'>
           <p className='register-link'>
-            Don't have an Account? Register <Link to='/register'>here</Link>
+            Don't have an Account? Register{' '}
+            <Link to='/register'>here</Link>
           </p>
-          <span className='separator-text'>or</span>
+          {/* <span className='separator-text'>or</span> */}
         </div>
-        <div className='social-login'>
+        {/* <div className='social-login'>
           <button type='button' className='social-button facebook-button'>
             <BsFacebook className='social-icon' /> Facebook
           </button>
           <button type='button' className='social-button google-button'>
             <AiFillGoogleCircle className='social-icon' /> Google
           </button>
-        </div>
+        </div> */}
       </form>
     </div>
   );

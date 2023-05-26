@@ -1,9 +1,9 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import './style.css';
-import {MdOutlineLocalShipping} from 'react-icons/md';
-import {GrPowerCycle} from 'react-icons/gr';
-import {GrSecure} from 'react-icons/gr';
-import {TfiCup} from 'react-icons/tfi';
+import { MdOutlineLocalShipping } from 'react-icons/md';
+import { BiRecycle } from 'react-icons/bi';
+import { RiSecurePaymentLine } from 'react-icons/ri';
+import { TfiCup } from 'react-icons/tfi';
 
 const Services = () => {
   return (
@@ -20,7 +20,7 @@ const Services = () => {
             </div>
           </div>
           <div className='service-item'>
-            <GrPowerCycle className='service-icon' />
+            <BiRecycle className='service-icon' />
             <div>
               <p className='service-name'>Free Return</p>
               <p className='service-sub'>
@@ -29,7 +29,7 @@ const Services = () => {
             </div>
           </div>
           <div className='service-item'>
-            <GrSecure className='service-icon' />
+            <RiSecurePaymentLine className='service-icon' />
             <div>
               <p className='service-name'>Secure Payment</p>
               <p className='service-sub'>
@@ -49,7 +49,7 @@ const Services = () => {
         </div>
       </div>
       <img
-        src={require('../../assets/images/logo.png')}
+        src={require('../../assets/images/logo1.png')}
         alt=''
         className='service-logo'
       />

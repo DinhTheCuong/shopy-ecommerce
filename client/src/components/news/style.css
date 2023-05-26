@@ -1,0 +1,60 @@
+.home-news {
+  max-width: 1200px;
+  margin: 40px auto 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.news-cart-left {
+  width: 49%;
+  background-image: url('../../assets/images/slider/iPhone-14.jpg');
+  background-position: top;
+  height: 640px;
+  background-size: cover;
+  border-radius: 6px;
+}
+
+.news-cart-left span {
+  color: var(--text-color);
+  font-size: 40px;
+}
+
+.news-cart-left p {
+  font-size: 32px;
+  font-weight: 600;
+  color: #fff;
+  padding: 32px 0 0 24px;
+}
+
+.news-cart-left a {
+  padding-left: 24px;
+  margin-top: 16px;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-color);
+  text-decoration: underline;
+  display: block;
+}
+
+.news-cart-right {
+  width: 49%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.news-cart-right-top {
+  background-image: url('../../assets/images/slider/Realme-C55.jpg');
+  background-position: top;
+  height: 49%;
+  background-size: cover;
+  border-radius: 6px;
+}
+
+.news-cart-right-bottom {
+  background-image: url('../../assets/images/slider/Aspire-7.png');
+  background-position: top;
+  height: 49%;
+  background-size: cover;
+  border-radius: 6px;
+}
