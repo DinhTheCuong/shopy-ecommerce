@@ -1,109 +1,111 @@
 .sidebar {
-    display: none;
+  display: none;
 }
 
 @media (max-width: 1024px) {
-    .sidebar {
-        position: fixed;
-        top: 0;
-        z-index: 8;
-        background-color: rgba(0, 0, 0, .2);
-        width: 100%;
-        height: 100%;
-        cursor: pointer;
-    }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    z-index: 8;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
 
-    .sidebar-container {
-        position: fixed;
-        z-index: 999999;
-        width: 300px;
-        background-color: #fff;
-        padding: 24px 24px;
-        border-bottom-right-radius: 10px;
-        animation: slide .7s ease-in-out;
-    }
+  .sidebar-container {
+    position: fixed;
+    z-index: 999999;
+    width: 300px;
+    background-color: #fff;
+    padding: 24px 24px;
+    border-bottom-right-radius: 10px;
+    animation: slide 0.7s ease-in-out;
+    background-color: var(--background-color);
+  }
 
-    .sidebar-title {
-        font-size: 36px;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-bottom: 20px;
-        margin-bottom: 24px;
-        border-bottom: 1px solid #ccc;
-        color: #1868d5;
-    }
+  .sidebar-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--default-after-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #ccc;
+  }
 
-    .close-sidebar {
-        font-size: 36px;
-        color: #e11a1a;
-        cursor: pointer;
-        /* position: absolute;
+  .close-sidebar {
+    font-size: 36px;
+    color: #e11a1a;
+    cursor: pointer;
+    /* position: absolute;
         right: -48px; */
-    }
+  }
 
-    .sidebar-link-list {
-        /* border-bottom: 1px solid #ccc; */
-        margin-bottom: 24px;
-    }
+  .sidebar-link-list {
+    /* border-bottom: 1px solid #ccc; */
+    margin-bottom: 24px;
+  }
 
-    .sidebar-link {
-        font-size: 20px;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 24px;
-        color: #000;
-        padding: 10px 20px;
-        border-bottom: 4px solid #1868d5;
-        /* border-radius: 6px; */
-    }
+  .sidebar-link {
+    font-size: 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding: 10px 20px;
+    border-bottom: 4px solid var(--default-color);
+    /* border-radius: 6px; */
+  }
 
-    .sidebar-category-title {
-        font-size: 26px;
-        font-weight: 600;
-        color: #1868d5;
-        margin-bottom: 24px;
-    }
+  .sidebar-category-title {
+    font-size: 26px;
+    font-weight: 600;
+    color: #1868d5;
+    margin-bottom: 24px;
+  }
 
-    .sidebar-item {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 20px;
-        text-decoration: none;
-        color: #000;
-        font-size: 20px;
-        margin-bottom: 20px;
-        border: 1px solid #1868d5;
-        border-radius: 6px;
-    }
+  .sidebar-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: var(--default-color);
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 20px;
+    border: 1px solid var(--default-after-color);
+    border-radius: 6px;
+  }
 
-    .sidebar-item-icon {
-        font-size: 28px;
-    }
+  .sidebar-item-icon {
+    font-size: 28px;
+    color: var(--primary-color);
+  }
 }
 
 @media (min-width: 740px) and (max-width: 1024px) {
-    .hide-on-tablet {
-        display: none;
-    }
+  .hide-on-tablet {
+    display: none;
+  }
 }
 
 @media (max-width: 739px) {
-    .hide-on-mobile {
-        display: none;
-    }
+  .hide-on-mobile {
+    display: none;
+  }
 }
 
 @keyframes slide {
-    from {
-        margin-left: -100%;
-    }
+  from {
+    margin-left: -100%;
+  }
 
-    to {
-        margin-left: 0;
-    }
+  to {
+    margin-left: 0;
+  }
 }

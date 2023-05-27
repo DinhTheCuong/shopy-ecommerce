@@ -46,6 +46,10 @@
   .services-list {
     margin: 0 0 0 32px;
   }
+
+  .service-logo {
+    width: 100%;
+  }
 }
 
 @media (min-width: 740px) and (max-width: 1024px) {

@@ -33,7 +33,8 @@
 }
 
 @media (max-width: 1024px) {
-  .brands {
+  .brands-container {
+    justify-content: space-evenly;
     grid-template-columns: 24% 24% 24% 24%;
   }
 
@@ -53,7 +54,7 @@
     display: none;
   }
 
-  .brands {
+  .brands-container {
     grid-template-columns: 45% 45%;
   }
 }

@@ -423,9 +423,6 @@
   border-bottom-right-radius: 6px;
 }
 
-.category-item {
-}
-
 .category-item a {
   width: 100%;
   display: flex;
@@ -485,6 +482,15 @@
     display: block;
     font-size: 40px;
     cursor: pointer;
+  }
+
+  .header-tag {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .header-tag-addr {
+    display: none;
   }
 }
 
