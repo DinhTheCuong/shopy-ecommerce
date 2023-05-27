@@ -12,7 +12,10 @@ const ProductsSection = (props) => {
     .sort(() => 0.5 - Math.random())
     .slice(0, 4);
   return (
-    <div className='products-section'>
+    <div
+      className='products-section'
+      style={{ backgroundImage: props.bg }}
+    >
       <div className='products-section-title'>
         <p>{props.title}</p>
         <Link

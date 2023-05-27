@@ -12,9 +12,18 @@ const Home = () => {
         <News />
         {/* <HomeSlider /> */}
         <Brands />
-        <ProductsSection title='New Arrivals' />
-        <ProductsSection title='Top Selling Products' />
-        <ProductsSection title='Popular Sales' />
+        <ProductsSection
+          bg='linear-gradient(#FFEBD1, #FCB7A0)'
+          title='New Arrivals'
+        />
+        <ProductsSection
+          bg='linear-gradient(#51CBFE, #E1FECF)'
+          title='Top Selling Products'
+        />
+        <ProductsSection
+          bg='linear-gradient(#FF685F, #D589EC)'
+          title='Popular Sales'
+        />
       </div>
     </div>
   );
