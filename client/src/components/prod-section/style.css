@@ -71,6 +71,7 @@
   width: 100%;
   background-color: var(--button-color);
   color: #fff;
+  font-weight: 600;
   border: none;
   border-radius: 6px;
   cursor: pointer;

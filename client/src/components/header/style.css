@@ -389,6 +389,14 @@
   cursor: pointer;
 }
 
+.category:hover .category-header {
+  color: var(--text-color);
+  background-color: #fff;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  border-bottom: 1px solid #ccc;
+}
+
 .category:hover .category-list {
   display: block;
   overflow: hidden;
@@ -397,13 +405,11 @@
 .category-header {
   height: 50px;
   width: 272px;
-  background-color: #fff;
+  color: #fff;
   font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top-right-radius: 6px;
-  border-top-left-radius: 6px;
 }
 
 .category-icon {
@@ -417,7 +423,7 @@
   top: 50px;
   width: 100%;
   z-index: 1;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   animation: dropDown 0.2s ease-in-out;
   background-color: #fff;
   border-bottom-left-radius: 6px;

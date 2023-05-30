@@ -13,14 +13,30 @@ const authorization = async (email, password, options) => {
   let USER_TOKEN;
 
   await axios
-    .post('http://localhost:3002/login', JSON.stringify(data), {
-      headers: { 'Content-Type': 'application/json' },
-    })
+    .post(
+      'http://localhost:3002/login',
+      JSON.stringify(data),
+      {
+        headers: { 'Content-Type': 'application/json' },
+      }
+    )
     .then((response) => {
       USER_TOKEN = response.data.data.access_token;
+
       if (options.loginUser && response.status === 200) {
-        options.appValue.setUserData(JSON.parse(localStorage.getItem('user')));
-        options.navigate('/', { replace: true });
+        options.appValue.setUserData(
+          JSON.parse(localStorage.getItem('user'))
+        );
+        console.log(response.data.data.roles[0]);
+        if (response.data.data.roles[0] === 'ADMIN') {
+          options.navigate('/admin-page/add-product', {
+            replace: true,
+          });
+        } else {
+          options.navigate('/', {
+            replace: true,
+          });
+        }
       }
     })
     .catch((error) => {
