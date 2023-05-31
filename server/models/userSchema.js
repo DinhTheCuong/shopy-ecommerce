@@ -1,21 +1,21 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 const { Schema } = mongoose;
 
 const userSchema = new Schema(
   {
     email: {
       type: String,
-      required: [true, 'Email entry required!'],
+      required: [true, "Email entry required!"],
       unique: true,
     },
     username: {
       type: String,
-      required: [false, 'Requires entering username!'],
+      required: [false, "Requires entering username!"],
     },
     hashed_password: {
       type: String,
-      required: [true, 'Requires entering password!'],
+      required: [true, "Requires entering password!"],
       minlength: 6,
     },
     roles: {
@@ -23,7 +23,7 @@ const userSchema = new Schema(
       required: false,
     },
   },
-  { versionKey: false }
+  { versionKey: false },
 );
 
 userSchema.methods = {
@@ -32,7 +32,7 @@ userSchema.methods = {
   },
 
   encryptPassword: function (password) {
-    if (!password) return '';
+    if (!password) return "";
 
     const salt = bcrypt.genSaltSync(10);
     return bcrypt.hashSync(password, salt);
@@ -40,7 +40,7 @@ userSchema.methods = {
 };
 
 userSchema
-  .virtual('confirmPassword')
+  .virtual("confirmPassword")
   .set(function (value) {
     this._confirmPassword = value;
   })
@@ -49,7 +49,7 @@ userSchema
   });
 
 userSchema
-  .virtual('password')
+  .virtual("password")
   .set(function (password) {
     this._password = password;
     this.hashed_password = this.encryptPassword(password);
@@ -58,15 +58,15 @@ userSchema
     return this._password;
   });
 
-userSchema.path('hashed_password').validate(function () {
+userSchema.path("hashed_password").validate(function () {
   if (this._confirmPassword && !this.authenticate(this._confirmPassword)) {
-    this.invalidate('confirmPassword', 'Password confirmation does not match');
+    this.invalidate("confirmPassword", "Password confirmation does not match");
   }
   return true;
 });
 
-userSchema.post('save', function (error, doc, next) {
-  if (error.name === 'MongoServerError' && error.code === 11000) {
+userSchema.post("save", function (error, doc, next) {
+  if (error.name === "MongoServerError" && error.code === 11000) {
     next(error);
   } else {
     next(error);
