@@ -1,11 +1,12 @@
 const uploadCloud = require("../cloudinary");
 
-const productController = (router, service) => {
+const productController = (router, middleware, service) => {
   const productService = service;
 
   // Upload Image
   router.post(
-    "/products/upload",
+    "/upload",
+    middleware,
     uploadCloud.array("file", 3000),
     async (req, res, next) => {
       if (!req.files) {
@@ -21,7 +22,7 @@ const productController = (router, service) => {
   );
 
   // Create Product
-  router.post("/products", async (req, res, next) => {
+  router.post("/", middleware, async (req, res, next) => {
     const payload = req.body;
     try {
       const prod = await productService.createProduct(payload);
@@ -33,7 +34,7 @@ const productController = (router, service) => {
     }
   });
 
-  router.get("/products", async (req, res, next) => {
+  router.get("/", async (req, res, next) => {
     try {
       const prod = await productService.getAllProduct();
       res.status(200).json({
@@ -46,7 +47,7 @@ const productController = (router, service) => {
     }
   });
 
-  router.get("/products/name/:name", async (req, res, next) => {
+  router.get("/name/:name", async (req, res, next) => {
     const { name } = req.params;
     try {
       const prod = await productService.getProductByName(name);
@@ -58,7 +59,7 @@ const productController = (router, service) => {
     }
   });
 
-  router.get("/products/id/:id", async (req, res, next) => {
+  router.get("/id/:id", async (req, res, next) => {
     const { id } = req.params;
     try {
       const prod = await productService.getProductById(id);
@@ -70,7 +71,7 @@ const productController = (router, service) => {
     }
   });
 
-  router.get("/products/rate/:rate", async (req, res, next) => {
+  router.get("/rate/:rate", async (req, res, next) => {
     const { rate } = req.params;
     try {
       const prod = await productService.getProductById(rate);
@@ -82,7 +83,7 @@ const productController = (router, service) => {
     }
   });
 
-  router.put("/products/:id", async (req, res, next) => {
+  router.put("/:id", middleware, async (req, res, next) => {
     const { id } = req.params;
     try {
       const prod = await productService.updateProductById(id);
@@ -94,7 +95,7 @@ const productController = (router, service) => {
     }
   });
 
-  router.delete("/products/id/:id", async (req, res, next) => {
+  router.delete("/id/:id", middleware, async (req, res, next) => {
     const { id } = req.params;
     try {
       const prod = await productService.deleteProductById(id);
@@ -108,7 +109,7 @@ const productController = (router, service) => {
     }
   });
 
-  router.delete("/products/name/:name", async (req, res, next) => {
+  router.delete("/name/:name", middleware, async (req, res, next) => {
     const { name } = req.params;
     try {
       const prod = await productService.deleteProductByName(name);
