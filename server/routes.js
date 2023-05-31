@@ -4,7 +4,7 @@ const productRouter = require("./router/productRouter");
 const payloadFormatMdw = require("./middleware/payloadFormatMdw");
 
 rootRouter.use(authRouter);
-rootRouter.use(verifyToken, productRouter);
+rootRouter.use("/products", productRouter);
 rootRouter.use(payloadFormatMdw);
 
 module.exports = rootRouter;
