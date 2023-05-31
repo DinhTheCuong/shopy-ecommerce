@@ -67,7 +67,9 @@ const AddProd = () => {
           className='add-prod-form-input'
           id='prod-img'
         >
-          <label for='prod-img-input'>Product Image</label>
+          <label htmlFor='prod-img-input'>
+            Product Image
+          </label>
           <input
             id='prod-img-input'
             type='file'

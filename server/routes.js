@@ -7,7 +7,7 @@ const verifyToken = require("./middleware/verifyTokenMdw");
 
 // rootRouter.use(loadLoginMdw);
 rootRouter.use(authRouter);
-rootRouter.use(verifyToken, productRouter);
+rootRouter.use(productRouter);
 rootRouter.use(payloadFormatMdw);
 
 module.exports = rootRouter;

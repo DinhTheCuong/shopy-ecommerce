@@ -21,14 +21,13 @@ const authorization = async (email, password, options) => {
       }
     )
     .then((response) => {
-      USER_TOKEN = response.data.data.access_token;
+      USER_TOKEN = response.data.access_token;
 
       if (options.loginUser && response.status === 200) {
         options.appValue.setUserData(
           JSON.parse(localStorage.getItem('user'))
         );
-        console.log(response.data.data.roles[0]);
-        if (response.data.data.roles[0] === 'ADMIN') {
+        if (response.data.roles[0] === 'ADMIN') {
           options.navigate('/admin-page/add-product', {
             replace: true,
           });
@@ -51,7 +50,7 @@ const authorization = async (email, password, options) => {
       headers: { Authorization: AuthStr },
     })
     .then((response) => {
-      console.log(response.data);
+      console.log(response.data.products);
     })
     .catch((error) => {
       console.log(error);

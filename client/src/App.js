@@ -1,4 +1,4 @@
-import { useState, createContext } from 'react';
+import { useState, useEffect, createContext } from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Home from './components/pages/home';
@@ -21,6 +21,7 @@ import Admin from './components/admin/admin-page';
 import AddProd from './components/admin/addProd';
 import AdminDashboard from './components/admin/admin-dashboard';
 import UsersManager from './components/admin/admin-users-mng';
+import axios from 'axios';
 
 export const AppContext = createContext();
 
@@ -28,7 +29,23 @@ function App() {
   const [homeCart, setHomeCart] = useState([]);
   const [singleProd, setSingleProd] = useState({});
   const [userData, setUserData] = useState({});
+  const [datax, setDatax] = useState([]);
+
   let totalPrice = 0;
+
+  const fetchProdData = async () => {
+    const res = await axios.get(
+      'http://localhost:8000/products'
+    );
+    setDatax(res.data.products);
+  };
+
+  useEffect(() => {
+    fetchProdData();
+  }, []);
+
+  console.log(datax);
+
   const handleAddToCart = (element) => {
     const findProduct = homeCart.find(
       (ele) => ele.id === element.id
