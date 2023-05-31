@@ -10,7 +10,7 @@ const createUser = async (email, password, confirmPassword, options) => {
     confirmPassword: confirmPassword,
   };
   try {
-    await axios.post('http://localhost:3002/register', JSON.stringify(data), {
+    await axios.post('http://localhost:8000/register', JSON.stringify(data), {
       headers: { 'Content-Type': 'application/json' },
     });
     if (options.validateForm && options.registerUser) {

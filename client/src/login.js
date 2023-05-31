@@ -14,7 +14,7 @@ const authorization = async (email, password, options) => {
 
   await axios
     .post(
-      'http://localhost:3002/login',
+      'http://localhost:8000/login',
       JSON.stringify(data),
       {
         headers: { 'Content-Type': 'application/json' },
@@ -47,7 +47,7 @@ const authorization = async (email, password, options) => {
   const AuthStr = `Bearer ${USER_TOKEN}`;
 
   await axios
-    .get('http://localhost:3002/products', {
+    .get('http://localhost:8000/products', {
       headers: { Authorization: AuthStr },
     })
     .then((response) => {
