@@ -11,7 +11,7 @@ const userController = (router, service) => {
       user = await userService.createUser(userPayload);
       console.log("Created User Successfully!");
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
 
     res.json(user);
