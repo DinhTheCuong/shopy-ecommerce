@@ -27,7 +27,7 @@ const userSchema = new Schema(
 );
 
 userSchema.methods = {
-  authenticate: async function (password) {
+  authenticate: function (password) {
     return bcrypt.compareSync(password, this.hashed_password);
   },
 

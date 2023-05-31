@@ -37,13 +37,11 @@ userService.deleteUserById = async (reqUserId) => {
 
 userService.validateUserPasswordByEmail = async (email, checkPassword) => {
   const user = await userModel.findOne({ email });
-  if (!user) {
+  if (!user || !user.authenticate(checkPassword)) {
     console.log("Validate user error: User Not Found!");
+  } else {
+    return user;
   }
-  if (!user.authenticate(checkPassword)) {
-    console.log("Validate user error: Password Not Match");
-  }
-  return user.toObject();
 };
 
 module.exports = userService;

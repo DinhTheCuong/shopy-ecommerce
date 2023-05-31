@@ -18,27 +18,32 @@ const authController = (router, service) => {
         email,
         checkPassword,
       );
-      res.json({
-        _id: user.id,
-        email: user.email,
-        roles: user.roles,
-        access_token: jwt.sign(
-          {
-            id: user.id,
-            roles: user.roles,
-          },
-          SERVICE_CONFIG.SECRET_KEY,
-          {
-            expiresIn: SERVICE_CONFIG.TOKEN_EXPIRED_TIME,
-          },
-        ),
-      });
+      if (!user) {
+        res.status(400).json({
+          message: "Validate user error: Email or Password invalid",
+        });
+      } else {
+        res.json({
+          _id: user.id,
+          email: user.email,
+          roles: user.roles,
+          access_token: jwt.sign(
+            {
+              id: user.id,
+              roles: user.roles,
+            },
+            SERVICE_CONFIG.SECRET_KEY,
+            {
+              expiresIn: SERVICE_CONFIG.TOKEN_EXPIRED_TIME,
+            },
+          ),
+        });
+      }
     } catch (error) {
       res.json({
         message: "Login Failed!!!",
       });
     }
-    next();
   });
 
   return router;
