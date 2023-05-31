@@ -28,19 +28,39 @@ const AddProd = () => {
             type='text'
           />
         </div>
-        <div className='add-prod-form-input'>
-          <label>Brand</label>
-          <input
-            placeholder='Brand'
-            type='text'
-          />
+
+        <div className='add-prod-double-input'>
+          <div className='add-prod-form-input'>
+            <label>Category</label>
+            <input
+              placeholder='Category'
+              type='text'
+            />
+          </div>
+          <div className='add-prod-form-input'>
+            <label>Brand</label>
+            <input
+              placeholder='Brand'
+              type='number'
+            />
+          </div>
         </div>
-        <div className='add-prod-form-input'>
-          <label>Product Price</label>
-          <input
-            placeholder='Product price'
-            type='number'
-          />
+
+        <div className='add-prod-double-input'>
+          <div className='add-prod-form-input'>
+            <label>Product price</label>
+            <input
+              placeholder='Product price'
+              type='text'
+            />
+          </div>
+          <div className='add-prod-form-input'>
+            <label>Discount percentage</label>
+            <input
+              placeholder='Discount percentage'
+              type='number'
+            />
+          </div>
         </div>
 
         <div

@@ -78,11 +78,20 @@ input::-webkit-inner-spin-button {
   width: 120px;
   height: 120px;
   border: 1px solid #ccc;
-  margin-top: 4px;
+  margin: 16px 16px 0 0;
 }
 
 .prod-img-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-items: flex-start;
+}
+
+.add-prod-double-input {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-prod-double-input .add-prod-form-input {
+  width: 48%;
 }

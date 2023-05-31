@@ -20,7 +20,7 @@ import ScrollToTop from './scrollToTop';
 import Admin from './components/admin/admin-page';
 import AddProd from './components/admin/addProd';
 import AdminDashboard from './components/admin/admin-dashboard';
-import UserManager from './components/admin/admin-users-mng';
+import UsersManager from './components/admin/admin-users-mng';
 
 export const AppContext = createContext();
 
@@ -124,7 +124,7 @@ function App() {
             />
             <Route
               path='/admin-page/users-manager'
-              element={<UserManager />}
+              element={<UsersManager />}
             />
           </Route>
         </Routes>
