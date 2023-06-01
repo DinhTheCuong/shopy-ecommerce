@@ -50,3 +50,33 @@
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
   background-color: #fff;
 }
+
+@media (max-width: 1024px) {
+  .admin-page {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .admin-sidebar {
+    width: 590px;
+    height: 68px;
+    margin-bottom: 32px;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .admin-view-section {
+    width: 90%;
+  }
+}
+
+@media (min-width: 740px) and (max-width: 1024px) {
+}
+
+@media (max-width: 739px) {
+  .admin-sidebar {
+    width: 90%;
+    margin-bottom: 32px;
+    flex-direction: column;
+  }
+}

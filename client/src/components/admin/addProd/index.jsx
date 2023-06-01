@@ -41,7 +41,7 @@ const AddProd = () => {
             <label>Brand</label>
             <input
               placeholder='Brand'
-              type='number'
+              type='text'
             />
           </div>
         </div>
@@ -51,7 +51,7 @@ const AddProd = () => {
             <label>Product price</label>
             <input
               placeholder='Product price'
-              type='text'
+              type='number'
             />
           </div>
           <div className='add-prod-form-input'>
