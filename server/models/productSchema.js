@@ -14,7 +14,7 @@ const productSchema = new Schema({
   brand: String,
   category: String,
   thumbnail: String,
-  image: [String],
+  images: Array,
 });
 
 module.exports = productSchema;

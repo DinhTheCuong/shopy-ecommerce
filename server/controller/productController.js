@@ -7,7 +7,7 @@ const productController = (router, middleware, service) => {
   router.post(
     "/upload",
     middleware,
-    uploadCloud.array("file", 3000),
+    uploadCloud.any(),
     async (req, res, next) => {
       if (!req.files) {
         next(new Error("No file uploaded!"));
@@ -18,6 +18,7 @@ const productController = (router, middleware, service) => {
         url.push(req.files[i].path);
       }
       res.json({ url: url });
+      console.log("Upload image successfully!");
     },
   );
 

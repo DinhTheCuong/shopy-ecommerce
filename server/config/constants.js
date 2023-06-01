@@ -1,6 +1,6 @@
 module.exports = {
   SERVICE_CONFIG: {
-    TOKEN_EXPIRED_TIME: process.env.TOKEN_EXPIRED_TIME || 60 * 60,
+    TOKEN_EXPIRED_TIME: process.env.TOKEN_EXPIRED_TIME || 6000 * 6000,
     SECRET_KEY: process.env.JWT_KEY || "7Jw94Mat3rxRQDn7",
     SERVICE_PORT: process.env.SERVICE_PORT || 8000,
   },
@@ -20,6 +20,6 @@ module.exports = {
       process.env.CLOUDINARY_API_SECRET || "a-xJyTlUpLZO1Uv8pXBzIG8NLHw",
     CLOUDINARY_IMAGES_FOLDER: process.env.CLOUDINARY_IMAGES_FOLDER || "shoppy",
     INCLUDE_MIMETYPE: process.env.INCLUDE_MIMETYPE || ["jpg", "jpeg", "png"],
-    MAX_UPLOAD_SIZE: process.env.MAX_UPLOAD_SIZE || 1024 * 1024 * 2, // Giới hạn tệp tải lên đến 2 MB
+    MAX_UPLOAD_SIZE: process.env.MAX_UPLOAD_SIZE || 1024 * 1024 * 8, // Giới hạn tệp tải lên đến 2 MB
   },
 };

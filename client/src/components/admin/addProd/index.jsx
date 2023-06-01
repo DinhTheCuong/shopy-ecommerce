@@ -1,10 +1,13 @@
 import './style.css';
 import React from 'react';
 import { useState, useEffect } from 'react';
+import uploadProd from '../uploadProd';
 
 const AddProd = () => {
+  const [req, setReq] = useState({});
   const [images, setImages] = useState([]);
   const [imageURLS, setImageURLs] = useState([]);
+
   useEffect(() => {
     if (images.length < 1) return;
     const newImageUrls = [];
@@ -17,6 +20,28 @@ const AddProd = () => {
   function onImageChange(e) {
     setImages([...e.target.files]);
   }
+
+  const validateForm = () => {
+    let valid = true;
+
+    if (
+      !req.title ||
+      !req.category ||
+      !req.brand ||
+      !req.price ||
+      !req.discountPercentage ||
+      !req.description ||
+      images.length < 1
+    ) {
+      valid = false;
+    }
+    return valid;
+  };
+
+  const options = {
+    validateForm,
+  };
+
   return (
     <div className='add-product'>
       <p className='prod-mng-title'>Add Product</p>
@@ -24,6 +49,9 @@ const AddProd = () => {
         <div className='add-prod-form-input'>
           <label>Product Name</label>
           <input
+            onChange={(e) =>
+              setReq({ ...req, title: e.target.value })
+            }
             placeholder='Product name'
             type='text'
           />
@@ -33,6 +61,9 @@ const AddProd = () => {
           <div className='add-prod-form-input'>
             <label>Category</label>
             <input
+              onChange={(e) =>
+                setReq({ ...req, category: e.target.value })
+              }
               placeholder='Category'
               type='text'
             />
@@ -40,6 +71,9 @@ const AddProd = () => {
           <div className='add-prod-form-input'>
             <label>Brand</label>
             <input
+              onChange={(e) =>
+                setReq({ ...req, brand: e.target.value })
+              }
               placeholder='Brand'
               type='text'
             />
@@ -50,6 +84,9 @@ const AddProd = () => {
           <div className='add-prod-form-input'>
             <label>Product price</label>
             <input
+              onChange={(e) =>
+                setReq({ ...req, price: e.target.value })
+              }
               placeholder='Product price'
               type='number'
             />
@@ -57,6 +94,12 @@ const AddProd = () => {
           <div className='add-prod-form-input'>
             <label>Discount percentage</label>
             <input
+              onChange={(e) =>
+                setReq({
+                  ...req,
+                  discountPercentage: e.target.value,
+                })
+              }
               placeholder='Discount percentage'
               type='number'
             />
@@ -80,6 +123,7 @@ const AddProd = () => {
           <div className='prod-img-container'>
             {imageURLS.map((imageSrc) => (
               <img
+                key={imageSrc}
                 src={imageSrc}
                 alt='not fount'
                 width={'250px'}
@@ -90,11 +134,25 @@ const AddProd = () => {
         <div className='add-prod-form-input'>
           <label>Description</label>
           <textarea
+            onChange={(e) =>
+              setReq({
+                ...req,
+                description: e.target.value,
+              })
+            }
             placeholder='Description'
             type='img'
           />
         </div>
-        <button className='add-prod-btn'>Add</button>
+        <button
+          onClick={(event) => {
+            event.preventDefault();
+            uploadProd(req, images, options);
+          }}
+          className='add-prod-btn'
+        >
+          Add
+        </button>
       </form>
     </div>
   );

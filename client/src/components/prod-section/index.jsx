@@ -8,7 +8,7 @@ import { AiFillStar } from 'react-icons/ai';
 
 const ProductsSection = (props) => {
   const appValue = useContext(AppContext);
-  const viewProducts = appValue.data;
+  const viewProducts = appValue.data.slice(0, 4);
   return (
     <div
       className='products-section'
@@ -33,7 +33,7 @@ const ProductsSection = (props) => {
             <div className='product-img'>
               <img
                 className='product-thumbnail'
-                src={element.thumbnail}
+                src={element.images[0]}
                 alt=''
               />
             </div>

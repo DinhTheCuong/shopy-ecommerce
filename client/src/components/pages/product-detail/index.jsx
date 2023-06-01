@@ -19,7 +19,7 @@ const ProductDetail = () => {
       <div className='prod-detail-section'>
         <div className='prod-detail-thumb'>
           <Slider {...settings}>
-            {prod.image.map((ele) => (
+            {prod.images.map((ele) => (
               <img
                 key={ele}
                 src={ele}

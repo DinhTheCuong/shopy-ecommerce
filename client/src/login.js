@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+let USER_TOKEN;
+
 const authorization = async (email, password, options) => {
   if (options.validateForm()) {
     options.loginUser();
@@ -9,8 +11,6 @@ const authorization = async (email, password, options) => {
     email: email,
     password: password,
   };
-
-  let USER_TOKEN;
 
   await axios
     .post(
@@ -43,18 +43,19 @@ const authorization = async (email, password, options) => {
       alert('Sai Email hoặc Mật khẩu. Vui lòng thử lại!');
     });
 
-  const AuthStr = `Bearer ${USER_TOKEN}`;
+  // const AuthStr = `Bearer ${USER_TOKEN}`;
 
-  await axios
-    .get('http://localhost:8000/products', {
-      headers: { Authorization: AuthStr },
-    })
-    .then((response) => {
-      console.log(response.data.products);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  // await axios
+  //   .get('http://localhost:8000/products', {
+  //     headers: { Authorization: AuthStr },
+  //   })
+  //   .then((response) => {
+  //     console.log(response.data.products);
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
 };
 
+export { USER_TOKEN };
 export default authorization;
