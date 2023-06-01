@@ -22,7 +22,7 @@ const Header = () => {
   const handleDelete = (id) => {
     homeValue.setHomeCart(
       homeValue.homeCart.filter(
-        (element) => element.id !== id
+        (element) => element._id !== id
       ),
       toast.error('Removed from cart!')
     );
@@ -102,7 +102,7 @@ const Header = () => {
                     homeValue.homeCart.map((element) => (
                       <div
                         className='cart-prod-item'
-                        key={element.id}
+                        key={element._id}
                       >
                         <img
                           className='cart-prod-img'
@@ -115,7 +115,8 @@ const Header = () => {
                           </p>
                           <div className='cart-prod-price-amount'>
                             <p className='cart-prod-price'>
-                              $ {element.price}
+                              ${' '}
+                              {element.price.$numberDecimal}
                             </p>
                             <p className='cart-prod-amount'>
                               x {element.amount}
@@ -124,7 +125,7 @@ const Header = () => {
                         </div>
                         <MdOutlineDeleteForever
                           onClick={() =>
-                            handleDelete(element.id)
+                            handleDelete(element._id)
                           }
                           className='cart-del-icon'
                         />

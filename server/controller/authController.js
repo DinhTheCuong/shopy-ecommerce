@@ -38,6 +38,7 @@ const authController = (router, service) => {
             },
           ),
         });
+        console.log("Logged in successfully!");
       }
     } catch (error) {
       res.json({

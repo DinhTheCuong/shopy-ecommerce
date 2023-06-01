@@ -1,8 +1,8 @@
-import React, {useState, useContext} from 'react';
+import React, { useState } from 'react';
 import './style.css';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const CheckoutForm = ({onSubmit}) => {
+const CheckoutForm = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
     name: '',
     address: '',
@@ -10,8 +10,8 @@ const CheckoutForm = ({onSubmit}) => {
     email: '',
   });
   const handleChange = (event) => {
-    const {name, value} = event.target;
-    setFormData({...formData, [name]: value});
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
   };
   return (
     <div className='checkout-form'>
@@ -65,7 +65,8 @@ const CheckoutForm = ({onSubmit}) => {
           <Link to='/'>Back to Home Page</Link>
           <button
             type='submit'
-            className='checkout-form-btn'>
+            className='checkout-form-btn'
+          >
             Pay
           </button>
         </div>

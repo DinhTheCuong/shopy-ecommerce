@@ -1,13 +1,13 @@
-import React, {useContext} from 'react';
-import {Link} from 'react-router-dom';
-import {AppContext} from '../../../App';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { AppContext } from '../../../App';
 import './style.css';
-import {BsBag} from 'react-icons/bs';
-import {AiFillStar} from 'react-icons/ai';
+import { BsBag } from 'react-icons/bs';
+import { AiFillStar } from 'react-icons/ai';
 
 const AllProducts = () => {
   const appValue = useContext(AppContext);
-  const viewAllProducts = appValue.data.slice(0, 18);
+  const viewAllProducts = appValue.data;
 
   return (
     <div className='all-products'>
@@ -75,7 +75,10 @@ const AllProducts = () => {
           </div>
           <div className='sort'>
             <p>Sort by:</p>
-            <select name='' id=''>
+            <select
+              name=''
+              id=''
+            >
               <option value=''>Default</option>
               <option value=''>Price: Low To High</option>
               <option value=''>Price: High To Low</option>
@@ -84,7 +87,10 @@ const AllProducts = () => {
         </div>
         <div className='all-prod-view'>
           {viewAllProducts.map((prod) => (
-            <div className='product-card' key={prod.id}>
+            <div
+              className='product-card'
+              key={prod._id}
+            >
               <div className='product-img'>
                 <img
                   className='product-thumbnail'
@@ -103,19 +109,21 @@ const AllProducts = () => {
                   onClick={() =>
                     appValue.handleGetProd(prod)
                   }
-                  className='product-name'>
+                  className='product-name'
+                >
                   {prod.title}
                 </Link>
                 <p className='product-price'>
                   {' '}
-                  <span>$</span> {prod.price}
+                  <span>$</span> {prod.price.$numberDecimal}
                 </p>
               </div>
               <button
                 onClick={() =>
                   appValue.handleAddToCart(prod)
                 }
-                className='btn-add-to-cart'>
+                className='btn-add-to-cart'
+              >
                 <BsBag className='add-to-cart-icon' />
                 Add To Cart
               </button>

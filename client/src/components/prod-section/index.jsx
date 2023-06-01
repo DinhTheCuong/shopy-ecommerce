@@ -8,9 +8,7 @@ import { AiFillStar } from 'react-icons/ai';
 
 const ProductsSection = (props) => {
   const appValue = useContext(AppContext);
-  const viewProducts = appValue.data
-    .sort(() => 0.5 - Math.random())
-    .slice(0, 4);
+  const viewProducts = appValue.data;
   return (
     <div
       className='products-section'
@@ -30,7 +28,7 @@ const ProductsSection = (props) => {
         {viewProducts.map((element) => (
           <div
             className='product-card'
-            key={element.id}
+            key={element._id}
           >
             <div className='product-img'>
               <img
@@ -56,7 +54,8 @@ const ProductsSection = (props) => {
               </Link>
               <p className='product-price'>
                 {' '}
-                <span>$</span> {element.price}
+                <span>$</span>{' '}
+                {element.price.$numberDecimal}
               </p>
             </div>
             <button

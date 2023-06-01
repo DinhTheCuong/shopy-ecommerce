@@ -1,6 +1,6 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import './style.css';
-import {AppContext} from '../../../App';
+import { AppContext } from '../../../App';
 import Slider from 'react-slick';
 
 const ProductDetail = () => {
@@ -19,7 +19,7 @@ const ProductDetail = () => {
       <div className='prod-detail-section'>
         <div className='prod-detail-thumb'>
           <Slider {...settings}>
-            {prod.images.map((ele) => (
+            {prod.image.map((ele) => (
               <img
                 key={ele}
                 src={ele}
@@ -35,7 +35,7 @@ const ProductDetail = () => {
           <p className='prod-detail-title'>{prod.title}</p>
           <p className='prod-detail-brand'>{prod.brand}</p>
           <p className='prod-detail-price'>
-            {prod.price} $
+            {prod.price.$numberDecimal} $
           </p>
           <p className='prod-detail-description'>
             {prod.description}
@@ -45,7 +45,8 @@ const ProductDetail = () => {
           </p>
           <button
             className='prod-detail-btn'
-            onClick={() => appValue.handleAddToCart(prod)}>
+            onClick={() => appValue.handleAddToCart(prod)}
+          >
             Add To Cart
           </button>
         </div>

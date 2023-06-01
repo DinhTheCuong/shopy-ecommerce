@@ -1,16 +1,16 @@
-import React, {useContext, useState} from 'react';
-import {toast} from 'react-toastify';
+import React, { useContext, useState } from 'react';
+import { toast } from 'react-toastify';
 import './style.css';
-import {Link} from 'react-router-dom';
-import {AppContext} from '../../../App';
+import { Link } from 'react-router-dom';
+import { AppContext } from '../../../App';
 
 const Cart = () => {
   const appValue = useContext(AppContext);
   const [cart, setCart] = useState(appValue.homeCart);
   const handleDelete = (id) => {
     setCart(
-      cart.filter((element) => element.id !== id),
-      toast.error('Removed from cart!'),
+      cart.filter((element) => element._id !== id),
+      toast.error('Removed from cart!')
     );
   };
   appValue.setHomeCart(cart);
@@ -30,7 +30,8 @@ const Cart = () => {
             cart.map((product) => (
               <div
                 className='cart-page-item'
-                key={product.id}>
+                key={product._id}
+              >
                 <div className='cart-page-item-sub'>
                   <img
                     src={product.thumbnail}
@@ -39,7 +40,7 @@ const Cart = () => {
                   <p>{product.title}</p>
                 </div>
                 <p className='cart-page-item-price'>
-                  {product.price} $
+                  {product.price.$numberDecimal} $
                 </p>
                 <div className='cart-page-item-amount'>
                   <input
@@ -49,13 +50,16 @@ const Cart = () => {
                   />
                   <button
                     onClick={() =>
-                      handleDelete(product.id)
-                    }>
+                      handleDelete(product._id)
+                    }
+                  >
                     Delete
                   </button>
                 </div>
                 <p className='cart-page-item-total'>
-                  {product.price * product.amount} $
+                  {product.price.$numberDecimal *
+                    product.amount}{' '}
+                  $
                 </p>
               </div>
             ))

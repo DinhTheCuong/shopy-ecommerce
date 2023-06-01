@@ -6,7 +6,6 @@ import Header from './components/header';
 import Services from './components/services';
 import Footer from './components/footer';
 import Sidebar from '../src/components/sidebar';
-import { data } from './data.js';
 import { ToastContainer, toast } from 'react-toastify';
 import AllProducts from './components/pages/all-products';
 import About from './components/pages/about';
@@ -29,30 +28,27 @@ function App() {
   const [homeCart, setHomeCart] = useState([]);
   const [singleProd, setSingleProd] = useState({});
   const [userData, setUserData] = useState({});
-  const [datax, setDatax] = useState([]);
-
+  const [data, setData] = useState([]);
   let totalPrice = 0;
 
-  const fetchProdData = async () => {
-    const res = await axios.get(
-      'http://localhost:8000/products'
-    );
-    setDatax(res.data.products);
-  };
-
   useEffect(() => {
-    fetchProdData();
+    const dataFetch = async () => {
+      await axios
+        .get('http://localhost:8000/products')
+        .then((response) => {
+          setData(response.data.products);
+        });
+    };
+    dataFetch();
   }, []);
-
-  console.log(datax);
 
   const handleAddToCart = (element) => {
     const findProduct = homeCart.find(
-      (ele) => ele.id === element.id
+      (ele) => ele._id === element._id
     );
     if (findProduct) {
       const updateHomeCart = homeCart.map((ele) =>
-        ele.id === findProduct.id
+        ele._id === findProduct._id
           ? { ...ele, amount: ele.amount + 1 }
           : ele
       );
@@ -66,7 +62,8 @@ function App() {
 
   homeCart.map(
     (element) =>
-      (totalPrice += element.price * element.amount)
+      (totalPrice +=
+        element.price.$numberDecimal * element.amount)
   );
   const handleGetProd = (prod) => {
     setSingleProd(prod);

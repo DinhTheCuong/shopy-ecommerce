@@ -1,13 +1,13 @@
-import React, {useState, useContext} from 'react';
-import {AppContext} from '../../App';
+import React, { useState, useContext } from 'react';
+import { AppContext } from '../../App';
 import './style.css';
 
-const OrderSumary = ({onPaymentMethodChange}) => {
+const OrderSumary = ({ onPaymentMethodChange }) => {
   const appValue = useContext(AppContext);
   const [selectedPaymentMethod, setSelectedPaymentMethod] =
     useState(null);
   const [products, setProducts] = useState(
-    appValue.homeCart,
+    appValue.homeCart
   );
 
   const handlePaymentMethodChange = (event) => {
@@ -26,12 +26,15 @@ const OrderSumary = ({onPaymentMethodChange}) => {
           </div>
         ) : (
           products.map((product, index) => (
-            <div className='order-item' key={index}>
+            <div
+              className='order-item'
+              key={index}
+            >
               <p className='order-item-sub'>
                 {product.title}
               </p>
               <p className='order-quantity'>
-                {product.price} $
+                {product.price.$numberDecimal} $
                 <span> x {product.amount}</span>
               </p>
             </div>
