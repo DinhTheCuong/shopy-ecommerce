@@ -20,6 +20,6 @@ module.exports = {
       process.env.CLOUDINARY_API_SECRET || "a-xJyTlUpLZO1Uv8pXBzIG8NLHw",
     CLOUDINARY_IMAGES_FOLDER: process.env.CLOUDINARY_IMAGES_FOLDER || "shoppy",
     INCLUDE_MIMETYPE: process.env.INCLUDE_MIMETYPE || ["jpg", "jpeg", "png"],
-    MAX_UPLOAD_SIZE: process.env.MAX_UPLOAD_SIZE || 1024 * 1024 * 8, // Giới hạn tệp tải lên đến 2 MB
+    MAX_UPLOAD_SIZE: process.env.MAX_UPLOAD_SIZE || 1024 * 1024 * 8,
   },
 };

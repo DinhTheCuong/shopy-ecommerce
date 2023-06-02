@@ -13,9 +13,7 @@ const AllProducts = () => {
     <div className='all-products'>
       <div className='sidebar-product'>
         <div className='sidebar-product-item'>
-          <p className='sidebar-product-item-title'>
-            Categories
-          </p>
+          <p className='sidebar-product-item-title'>Categories</p>
           <div className='sidebar-categories-item'>
             <input type='checkbox' />
             <p>Mobile</p>
@@ -34,9 +32,7 @@ const AllProducts = () => {
           </div>
         </div>
         <div className='sidebar-product-item'>
-          <p className='sidebar-product-item-title'>
-            Brands
-          </p>
+          <p className='sidebar-product-item-title'>Brands</p>
           <div className='sidebar-categories-item'>
             <input type='checkbox' />
             <p>Apple</p>
@@ -70,8 +66,7 @@ const AllProducts = () => {
       <div className='all-products-section'>
         <div className='all-prod-filter'>
           <div className='quantity-result'>
-            Showing <span>{viewAllProducts.length}</span>{' '}
-            results
+            Showing <span>{viewAllProducts.length}</span> results
           </div>
           <div className='sort'>
             <p>Sort by:</p>
@@ -94,7 +89,7 @@ const AllProducts = () => {
               <div className='product-img'>
                 <img
                   className='product-thumbnail'
-                  src={prod.thumbnail}
+                  src={prod.images[0]}
                   alt=''
                 />
               </div>
@@ -106,9 +101,7 @@ const AllProducts = () => {
                 </div>
                 <Link
                   to='/product-detail'
-                  onClick={() =>
-                    appValue.handleGetProd(prod)
-                  }
+                  onClick={() => appValue.handleGetProd(prod)}
                   className='product-name'
                 >
                   {prod.title}
@@ -119,9 +112,7 @@ const AllProducts = () => {
                 </p>
               </div>
               <button
-                onClick={() =>
-                  appValue.handleAddToCart(prod)
-                }
+                onClick={() => appValue.handleAddToCart(prod)}
                 className='btn-add-to-cart'
               >
                 <BsBag className='add-to-cart-icon' />

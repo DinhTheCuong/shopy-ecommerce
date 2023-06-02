@@ -9,6 +9,7 @@
   font-weight: 600;
   margin-bottom: 32px;
   text-align: center;
+  color: var(--default-color);
 }
 
 .brands-container {

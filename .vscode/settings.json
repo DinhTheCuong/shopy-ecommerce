@@ -1,0 +1,12 @@
+{
+  "editor.codeLensFontFamily": "JetBrains Mono",
+  "editor.fontFamily": "JetBrains Mono",
+  "workbench.colorTheme": "Default Dark+",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.preferredDarkColorTheme": "Default Dark Modern",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.singleAttributePerLine": true,
+  "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true
+}

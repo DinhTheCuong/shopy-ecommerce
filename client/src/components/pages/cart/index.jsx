@@ -34,7 +34,7 @@ const Cart = () => {
               >
                 <div className='cart-page-item-sub'>
                   <img
-                    src={product.thumbnail}
+                    src={product.images[0]}
                     alt='product image'
                   />
                   <p>{product.title}</p>

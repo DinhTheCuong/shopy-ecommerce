@@ -15,26 +15,24 @@ import { CiPalette } from 'react-icons/ci';
 import { MdOutlineDeleteForever } from 'react-icons/md';
 import { HiOutlineBars3BottomLeft } from 'react-icons/hi2';
 import { GrMapLocation } from 'react-icons/gr';
+import { BiLogIn } from 'react-icons/bi';
+import { HiOutlineUserAdd } from 'react-icons/hi';
+import { BiLogOut } from 'react-icons/bi';
 import { toast } from 'react-toastify';
 
 const Header = () => {
   const homeValue = useContext(AppContext);
   const handleDelete = (id) => {
     homeValue.setHomeCart(
-      homeValue.homeCart.filter(
-        (element) => element._id !== id
-      ),
+      homeValue.homeCart.filter((element) => element._id !== id),
       toast.error('Removed from cart!')
     );
   };
   const handleOpenSidebar = () => {
-    document.getElementById('sidebar').style.display =
-      'block';
+    document.getElementById('sidebar').style.display = 'block';
   };
   let numberOfHomeCart = 0;
-  homeValue.homeCart.map(
-    (ele) => (numberOfHomeCart += ele.amount)
-  );
+  homeValue.homeCart.map((ele) => (numberOfHomeCart += ele.amount));
   const user = JSON.parse(localStorage.getItem('user'));
   const handleLogout = () => {
     localStorage.removeItem('user');
@@ -44,10 +42,7 @@ const Header = () => {
       <div className='header-tag'>
         <div className='header-tag-addr'>
           <GrMapLocation className='header-tag-icon' />
-          <p>
-            29T1 - Hoang Dao Thuy, Trung Hoa, Cau Giay, Ha
-            Noi
-          </p>
+          <p>29T1 - Hoang Dao Thuy, Trung Hoa, Cau Giay, Ha Noi</p>
         </div>
 
         <div className='header-tag-username'>
@@ -69,7 +64,10 @@ const Header = () => {
             id='sidebar-icon'
             onClick={handleOpenSidebar}
           />
-          <Link to='/'>
+          <Link
+            className='header-logo-link'
+            to='/'
+          >
             <img
               className='header-logo'
               src={logo}
@@ -82,9 +80,7 @@ const Header = () => {
               className='header-search-input'
               placeholder='Search Products...'
             />
-            <button className='header-search-btn'>
-              Search
-            </button>
+            <button className='header-search-btn'>Search</button>
           </div>
           <div className='header-link'>
             <div className='header-cart'>
@@ -106,17 +102,14 @@ const Header = () => {
                       >
                         <img
                           className='cart-prod-img'
-                          src={element.thumbnail}
+                          src={element.images[0]}
                           alt=''
                         />
                         <div className='cart-prod-detail'>
-                          <p className='cart-prod-name'>
-                            {element.title}
-                          </p>
+                          <p className='cart-prod-name'>{element.title}</p>
                           <div className='cart-prod-price-amount'>
                             <p className='cart-prod-price'>
-                              ${' '}
-                              {element.price.$numberDecimal}
+                              $ {element.price.$numberDecimal}
                             </p>
                             <p className='cart-prod-amount'>
                               x {element.amount}
@@ -124,9 +117,7 @@ const Header = () => {
                           </div>
                         </div>
                         <MdOutlineDeleteForever
-                          onClick={() =>
-                            handleDelete(element._id)
-                          }
+                          onClick={() => handleDelete(element._id)}
                           className='cart-del-icon'
                         />
                       </div>
@@ -140,18 +131,12 @@ const Header = () => {
                   </div>
                 </div>
                 <Link to='/cart'>
-                  <button className='view-cart-btn'>
-                    View Cart
-                  </button>
+                  <button className='view-cart-btn'>View Cart</button>
                 </Link>
                 <Link to='/checkout'>
-                  <button className='checkout-btn'>
-                    Checkout Now
-                  </button>
+                  <button className='checkout-btn'>Checkout Now</button>
                 </Link>
-                <p className='cart-prod-last'>
-                  Get Return within 30 days
-                </p>
+                <p className='cart-prod-last'>Get Return within 30 days</p>
               </div>
             </div>
             <div className='header-user hide-on-tablet hide-on-mobile'>
@@ -162,12 +147,19 @@ const Header = () => {
                     href='/'
                     onClick={handleLogout}
                   >
+                    <BiLogOut className='user-icon-option' />
                     Logout
                   </a>
                 ) : (
                   <>
-                    <Link to='/login'>Login</Link>
-                    <Link to='/register'>Register</Link>
+                    <Link to='/login'>
+                      <BiLogIn className='user-icon-option' />
+                      Login
+                    </Link>
+                    <Link to='/register'>
+                      <HiOutlineUserAdd className='user-icon-option' />
+                      Register
+                    </Link>
                   </>
                 )}
               </div>
