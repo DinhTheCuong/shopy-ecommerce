@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../../App.js';
 import { Link } from 'react-router-dom';
-import './style.css';
 import { BsArrowRight } from 'react-icons/bs';
 import { BsBag } from 'react-icons/bs';
 import { AiFillStar } from 'react-icons/ai';
+import './style.css';
 
 const ProductsSection = (props) => {
   const appValue = useContext(AppContext);
@@ -45,23 +45,18 @@ const ProductsSection = (props) => {
               </div>
               <Link
                 to='/product-detail'
-                onClick={() =>
-                  appValue.handleGetProd(element)
-                }
+                onClick={() => appValue.handleGetProd(element)}
                 className='product-name'
               >
                 {element.title}
               </Link>
               <p className='product-price'>
                 {' '}
-                <span>$</span>{' '}
-                {element.price.$numberDecimal}
+                <span>$</span> {element.price.$numberDecimal}
               </p>
             </div>
             <button
-              onClick={() =>
-                appValue.handleAddToCart(element)
-              }
+              onClick={() => appValue.handleAddToCart(element)}
               className='btn-add-to-cart'
             >
               <BsBag className='add-to-cart-icon' />

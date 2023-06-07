@@ -11,9 +11,7 @@ const AddProd = () => {
   useEffect(() => {
     if (images.length < 1) return;
     const newImageUrls = [];
-    images.forEach((image) =>
-      newImageUrls.push(URL.createObjectURL(image))
-    );
+    images.forEach((image) => newImageUrls.push(URL.createObjectURL(image)));
     setImageURLs(newImageUrls);
   }, [images]);
 
@@ -49,9 +47,7 @@ const AddProd = () => {
         <div className='add-prod-form-input'>
           <label>Product Name</label>
           <input
-            onChange={(e) =>
-              setReq({ ...req, title: e.target.value })
-            }
+            onChange={(e) => setReq({ ...req, title: e.target.value })}
             placeholder='Product name'
             type='text'
           />
@@ -61,9 +57,7 @@ const AddProd = () => {
           <div className='add-prod-form-input'>
             <label>Category</label>
             <input
-              onChange={(e) =>
-                setReq({ ...req, category: e.target.value })
-              }
+              onChange={(e) => setReq({ ...req, category: e.target.value })}
               placeholder='Category'
               type='text'
             />
@@ -71,9 +65,7 @@ const AddProd = () => {
           <div className='add-prod-form-input'>
             <label>Brand</label>
             <input
-              onChange={(e) =>
-                setReq({ ...req, brand: e.target.value })
-              }
+              onChange={(e) => setReq({ ...req, brand: e.target.value })}
               placeholder='Brand'
               type='text'
             />
@@ -84,9 +76,7 @@ const AddProd = () => {
           <div className='add-prod-form-input'>
             <label>Product price</label>
             <input
-              onChange={(e) =>
-                setReq({ ...req, price: e.target.value })
-              }
+              onChange={(e) => setReq({ ...req, price: e.target.value })}
               placeholder='Product price'
               type='number'
             />
@@ -110,9 +100,7 @@ const AddProd = () => {
           className='add-prod-form-input'
           id='prod-img'
         >
-          <label htmlFor='prod-img-input'>
-            Product Image
-          </label>
+          <label htmlFor='prod-img-input'>Product Image</label>
           <input
             id='prod-img-input'
             type='file'

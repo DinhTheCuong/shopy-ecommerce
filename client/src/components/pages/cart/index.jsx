@@ -35,7 +35,7 @@ const Cart = () => {
                 <div className='cart-page-item-sub'>
                   <img
                     src={product.images[0]}
-                    alt='product image'
+                    alt='product img'
                   />
                   <p>{product.title}</p>
                 </div>
@@ -48,18 +48,12 @@ const Cart = () => {
                     min={1}
                     placeholder={product.amount}
                   />
-                  <button
-                    onClick={() =>
-                      handleDelete(product._id)
-                    }
-                  >
+                  <button onClick={() => handleDelete(product._id)}>
                     Delete
                   </button>
                 </div>
                 <p className='cart-page-item-total'>
-                  {product.price.$numberDecimal *
-                    product.amount}{' '}
-                  $
+                  {product.price.$numberDecimal * product.amount} $
                 </p>
               </div>
             ))
@@ -67,18 +61,14 @@ const Cart = () => {
         </div>
         <div className='cart-pay-submit'>
           <Link to='/all-products'>
-            <button className='cart-pay-submit-btn'>
-              Continue Shopping
-            </button>
+            <button className='cart-pay-submit-btn'>Continue Shopping</button>
           </Link>
           <div className='cart-pay-subtotal'>
             <p>
               Subtotal: <span>{appValue.totalPrice} $</span>
             </p>
             <Link to='/checkout'>
-              <button className='cart-pay-submit-btn'>
-                Checkout
-              </button>
+              <button className='cart-pay-submit-btn'>Checkout</button>
             </Link>
           </div>
         </div>

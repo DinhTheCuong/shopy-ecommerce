@@ -18,7 +18,7 @@ const Admin = () => {
         </NavLink>
         <NavLink
           className='admin-sidebar-link'
-          to='/admin-page/add-product'
+          to='/admin-page/products-manager'
         >
           <CgListTree className='admin-sidebar-icon' />
           Products Manager

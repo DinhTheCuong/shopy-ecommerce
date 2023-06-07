@@ -21,6 +21,7 @@ import AddProd from './components/admin/addProd';
 import AdminDashboard from './components/admin/admin-dashboard';
 import UsersManager from './components/admin/admin-users-mng';
 import axios from 'axios';
+import AdminProdMng from './components/admin/admin-prod-mng';
 
 export const AppContext = createContext();
 
@@ -33,24 +34,18 @@ function App() {
 
   useEffect(() => {
     const dataFetch = async () => {
-      await axios
-        .get('http://localhost:8000/products')
-        .then((response) => {
-          setData(response.data.products);
-        });
+      await axios.get('http://localhost:8000/products').then((response) => {
+        setData(response.data.products);
+      });
     };
     dataFetch();
   }, []);
 
   const handleAddToCart = (element) => {
-    const findProduct = homeCart.find(
-      (ele) => ele._id === element._id
-    );
+    const findProduct = homeCart.find((ele) => ele._id === element._id);
     if (findProduct) {
       const updateHomeCart = homeCart.map((ele) =>
-        ele._id === findProduct._id
-          ? { ...ele, amount: ele.amount + 1 }
-          : ele
+        ele._id === findProduct._id ? { ...ele, amount: ele.amount + 1 } : ele
       );
       setHomeCart(updateHomeCart);
     } else {
@@ -61,9 +56,7 @@ function App() {
   };
 
   homeCart.map(
-    (element) =>
-      (totalPrice +=
-        element.price.$numberDecimal * element.amount)
+    (element) => (totalPrice += element.price.$numberDecimal * element.amount)
   );
   const handleGetProd = (prod) => {
     setSingleProd(prod);
@@ -131,6 +124,10 @@ function App() {
             <Route
               path='/admin-page/dashboard'
               element={<AdminDashboard />}
+            />
+            <Route
+              path='/admin-page/products-manager'
+              element={<AdminProdMng />}
             />
             <Route
               path='/admin-page/add-product'

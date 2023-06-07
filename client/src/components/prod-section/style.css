@@ -103,6 +103,11 @@
   font-size: 20px;
   color: #000;
   text-decoration: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .product-name:hover {

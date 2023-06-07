@@ -1,0 +1,124 @@
+.admin-prod-mng .add-prod-btn {
+  margin-bottom: 16px;
+}
+
+.admin-prod-grid {
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #ebf1ec92;
+}
+
+.admin-prod-mng-header {
+  display: grid;
+  grid-template-columns: auto 12% 15% 6% 16% 15%;
+  margin: 0 0 16px;
+}
+
+.admin-prod-header-item {
+  color: #b7b4b4ce;
+  text-align: center;
+  font-weight: 600;
+}
+
+.admin-prod-mng-card {
+  display: grid;
+  grid-template-columns: auto 12% 15% 6% 16% 15%;
+  color: var(--text-color);
+  font-size: 14px;
+}
+
+.admin-prod-name {
+  border-top: 1px solid rgba(0, 0, 0, 0.09);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 16px 0;
+}
+
+.admin-prod-name img {
+  width: 60px;
+  border-radius: 4px;
+}
+
+.admin-prod-name p {
+  cursor: pointer;
+  font-weight: 600;
+  width: 200px;
+}
+
+.admin-prod-name p:hover {
+  color: var(--default-color);
+}
+
+.admin-prod-quantity {
+  border-top: 1px solid rgba(0, 0, 0, 0.09);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-prod-price {
+  border-top: 1px solid rgba(0, 0, 0, 0.09);
+  color: #c31f1f;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-prod-rate {
+  border-top: 1px solid rgba(0, 0, 0, 0.09);
+  color: #fbcd15;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-prod-status {
+  border-top: 1px solid rgba(0, 0, 0, 0.09);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-prod-status p {
+  color: #53ce8b;
+  font-weight: 600;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #edfaf3;
+}
+
+.admin-prod-action {
+  border-top: 1px solid rgba(0, 0, 0, 0.09);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 24px;
+}
+
+.admin-prod-edit-icon {
+  cursor: pointer;
+  color: #fff;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: var(--button-color);
+}
+
+.admin-prod-edit-icon:hover {
+  background-color: #0f9716;
+}
+
+.admin-prod-delete-icon {
+  cursor: pointer;
+  color: #fff;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: #c31f1f;
+}
+
+.admin-prod-delete-icon:hover {
+  background-color: #950707;
+}

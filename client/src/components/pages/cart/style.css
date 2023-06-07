@@ -14,7 +14,6 @@
 .cart-title-column {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 32px;
   padding-bottom: 32px;
   border-bottom: 1px solid #ccc;
 }
@@ -27,7 +26,6 @@
 }
 
 .cart-page-list {
-  padding-bottom: 32px;
   margin-bottom: 32px;
   border-bottom: 1px solid #ccc;
 }
@@ -36,7 +34,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 32px;
+  border-top: 1px solid #ccc;
+  padding: 16px 0;
+}
+
+.cart-page-item:first-child {
+  border: none;
 }
 
 .cart-page-item-sub {
@@ -47,7 +50,7 @@
 
 .cart-page-item-sub p {
   width: 120px;
-  font-size: 20px;
+  font-size: 14px;
 }
 
 .cart-page-item-sub img {
