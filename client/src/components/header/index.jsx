@@ -18,6 +18,7 @@ import { GrMapLocation } from 'react-icons/gr';
 import { BiLogIn } from 'react-icons/bi';
 import { HiOutlineUserAdd } from 'react-icons/hi';
 import { BiLogOut } from 'react-icons/bi';
+import { MdOutlineAdminPanelSettings } from 'react-icons/md';
 import { toast } from 'react-toastify';
 
 const Header = () => {
@@ -142,7 +143,21 @@ const Header = () => {
             <div className='header-user hide-on-tablet hide-on-mobile'>
               <HiUserCircle className='user-icon' />
               <div className='header-logout'>
-                {user ? (
+                {user && user.roles === 'ADMIN' ? (
+                  <>
+                    <a href='/admin-page/dashboard'>
+                      <MdOutlineAdminPanelSettings className='user-icon-option' />
+                      Admin Page
+                    </a>
+                    <a
+                      href='/'
+                      onClick={handleLogout}
+                    >
+                      <BiLogOut className='user-icon-option' />
+                      Logout
+                    </a>
+                  </>
+                ) : user ? (
                   <a
                     href='/'
                     onClick={handleLogout}

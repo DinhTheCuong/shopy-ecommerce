@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { USER_TOKEN } from '../../login';
 
 const uploadProd = async (req, imagesUpload, options) => {
   const data = {
@@ -12,6 +11,7 @@ const uploadProd = async (req, imagesUpload, options) => {
     images: {},
   };
 
+  const USER_TOKEN = JSON.parse(localStorage.getItem('user')).access_token;
   const AuthStr = `Bearer ${USER_TOKEN}`;
 
   if (!options.validateForm()) {
@@ -20,36 +20,29 @@ const uploadProd = async (req, imagesUpload, options) => {
   }
 
   await axios
-    .post(
-      'http://localhost:8000/products/upload',
-      imagesUpload,
-      {
-        headers: {
-          Authorization: AuthStr,
-          'Content-Type': 'multipart/form-data',
-        },
-      }
-    )
+    .post('http://localhost:8000/products/upload', imagesUpload, {
+      headers: {
+        Authorization: AuthStr,
+        'Content-Type': 'multipart/form-data',
+      },
+    })
     .then((response) => {
       const imageURL = response.data.url;
       const updateData = {
         ...data,
         images: imageURL,
       };
-      console.log(JSON.stringify(imageURL));
       axios
-        .post(
-          'http://localhost:8000/products',
-          JSON.stringify(updateData),
-          {
-            headers: {
-              Authorization: AuthStr,
-              'Content-Type': 'application/json',
-            },
-          }
-        )
-        .then((res) => {
-          console.log('Product created!', res);
+        .post('http://localhost:8000/products', JSON.stringify(updateData), {
+          headers: {
+            Authorization: AuthStr,
+            'Content-Type': 'application/json',
+          },
+        })
+        .then(() => {
+          console.log('Product created!');
+          options.navigate('/');
+          options.navigate(0);
         });
     });
 };

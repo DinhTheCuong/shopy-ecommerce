@@ -2,6 +2,21 @@
   margin-bottom: 16px;
 }
 
+.admin-prod-mng-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-prod-mng-head p {
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.admin-prod-mng-head span {
+  color: var(--default-color);
+}
+
 .admin-prod-grid {
   padding: 16px;
   border-radius: 8px;
@@ -10,7 +25,7 @@
 
 .admin-prod-mng-header {
   display: grid;
-  grid-template-columns: auto 12% 15% 6% 16% 15%;
+  grid-template-columns: 5% auto 11% 13% 5% 14% 14%;
   margin: 0 0 16px;
 }
 
@@ -22,9 +37,22 @@
 
 .admin-prod-mng-card {
   display: grid;
-  grid-template-columns: auto 12% 15% 6% 16% 15%;
+  grid-template-columns: 5% auto 11% 13% 5% 14% 14%;
   color: var(--text-color);
   font-size: 14px;
+}
+
+.admin-prod-mng-card:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.09);
+}
+
+.admin-prod-serrial {
+  border-top: 1px solid rgba(0, 0, 0, 0.09);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .admin-prod-name {
@@ -69,7 +97,7 @@
 
 .admin-prod-rate {
   border-top: 1px solid rgba(0, 0, 0, 0.09);
-  color: #fbcd15;
+  color: var(--primary-color);
   font-weight: 600;
   display: flex;
   align-items: center;

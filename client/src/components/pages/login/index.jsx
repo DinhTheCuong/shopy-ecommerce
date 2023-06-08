@@ -21,15 +21,6 @@ const LoginPage = () => {
     return pattern.test(email);
   };
 
-  const loginUser = () => {
-    const user = {
-      email: email,
-      loggedIn: true,
-    };
-    localStorage.setItem('user', JSON.stringify(user));
-    return user.loggedIn;
-  };
-
   const validateForm = () => {
     const newErrors = {};
     let valid = true;
@@ -40,8 +31,7 @@ const LoginPage = () => {
     }
 
     if (password.length < 6) {
-      newErrors.password =
-        'Passwords must be at least 6 characters';
+      newErrors.password = 'Passwords must be at least 6 characters';
       valid = false;
     }
 
@@ -51,7 +41,6 @@ const LoginPage = () => {
 
   const options = {
     validateForm,
-    loginUser,
     appValue,
     navigate,
   };
@@ -67,11 +56,7 @@ const LoginPage = () => {
             id='email'
             onChange={(e) => setEmail(e.target.value)}
           />
-          {errors.email && (
-            <div className='error-message'>
-              {errors.email}
-            </div>
-          )}
+          {errors.email && <div className='error-message'>{errors.email}</div>}
         </div>
         <div className='form-group'>
           <label htmlFor='password'>Password:</label>
@@ -82,24 +67,19 @@ const LoginPage = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           {errors.password && (
-            <div className='error-message'>
-              {errors.password}
-            </div>
+            <div className='error-message'>{errors.password}</div>
           )}
         </div>
         <button
           type='submit'
-          onClick={() =>
-            authorization(email, password, options)
-          }
+          onClick={() => authorization(email, password, options)}
           className='submit-button'
         >
           Login
         </button>
         <div className='separator'>
           <p className='register-link'>
-            Don't have an Account? Register{' '}
-            <Link to='/register'>here</Link>
+            Don't have an Account? Register <Link to='/register'>here</Link>
           </p>
           {/* <span className='separator-text'>or</span> */}
         </div>

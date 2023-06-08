@@ -175,6 +175,7 @@
   z-index: 4;
   display: none;
   overflow: hidden;
+  width: 160px;
 }
 
 .header-user .header-logout a {

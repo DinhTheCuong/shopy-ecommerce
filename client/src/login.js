@@ -1,12 +1,7 @@
 import axios from 'axios';
 
-let USER_TOKEN;
-
 const authorization = async (email, password, options) => {
-  if (options.validateForm()) {
-    options.loginUser();
-  }
-
+  options.validateForm();
   const data = {
     email: email,
     password: password,
@@ -17,12 +12,19 @@ const authorization = async (email, password, options) => {
       headers: { 'Content-Type': 'application/json' },
     })
     .then((response) => {
-      USER_TOKEN = response.data.access_token;
+      const user = {
+        access_token: response.data.access_token,
+        email: response.data.email,
+        roles: response.data.roles[0],
+        loggedIn: true,
+      };
+      localStorage.setItem('user', JSON.stringify(user));
 
-      if (options.loginUser && response.status === 200) {
+      if (user.loggedIn && response.status === 200) {
         options.appValue.setUserData(JSON.parse(localStorage.getItem('user')));
-        if (response.data.roles[0] === 'ADMIN') {
-          options.navigate('/admin-page', {
+
+        if (user.roles === 'ADMIN') {
+          options.navigate('/admin-page/dashboard', {
             replace: true,
           });
         } else {
@@ -36,20 +38,6 @@ const authorization = async (email, password, options) => {
       console.log(error);
       alert('Sai Email hoặc Mật khẩu. Vui lòng thử lại!');
     });
-
-  // const AuthStr = `Bearer ${USER_TOKEN}`;
-
-  // await axios
-  //   .get('http://localhost:8000/products', {
-  //     headers: { Authorization: AuthStr },
-  //   })
-  //   .then((response) => {
-  //     console.log(response.data.products);
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
 };
 
-export { USER_TOKEN };
 export default authorization;

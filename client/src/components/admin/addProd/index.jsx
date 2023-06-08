@@ -1,9 +1,11 @@
 import './style.css';
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import uploadProd from '../uploadProd';
 
 const AddProd = () => {
+  const navigate = useNavigate();
   const [req, setReq] = useState({});
   const [images, setImages] = useState([]);
   const [imageURLS, setImageURLs] = useState([]);
@@ -38,6 +40,7 @@ const AddProd = () => {
 
   const options = {
     validateForm,
+    navigate,
   };
 
   return (
