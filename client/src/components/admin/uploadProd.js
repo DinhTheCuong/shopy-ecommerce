@@ -41,7 +41,7 @@ const uploadProd = async (req, imagesUpload, options) => {
         })
         .then(() => {
           console.log('Product created!');
-          options.navigate('/');
+          options.navigate('/admin-page/products-manager');
           options.navigate(0);
         });
     });

@@ -22,6 +22,7 @@ import AdminDashboard from './components/admin/admin-dashboard';
 import UsersManager from './components/admin/admin-users-mng';
 import axios from 'axios';
 import AdminProdMng from './components/admin/admin-prod-mng';
+import EditProd from './components/admin/editProd';
 
 export const AppContext = createContext();
 
@@ -61,6 +62,7 @@ function App() {
   const handleGetProd = (prod) => {
     setSingleProd(prod);
   };
+  
   return (
     <div className='App'>
       <AppContext.Provider
@@ -132,6 +134,10 @@ function App() {
             <Route
               path='/admin-page/add-product'
               element={<AddProd />}
+            />
+            <Route
+              path='/admin-page/edit-product'
+              element={<EditProd />}
             />
             <Route
               path='/admin-page/users-manager'

@@ -6,9 +6,8 @@ if (user) {
   AuthStr = `Bearer ${user.access_token}`;
 }
 const productActions = {};
-productActions.editProduct = async (id) => {
-  await axios.put();
-};
+
+productActions.editProduct = async (id, navigate) => {};
 
 productActions.deleteProduct = async (id, navigate) => {
   await axios

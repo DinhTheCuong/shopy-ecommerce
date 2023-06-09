@@ -62,7 +62,14 @@ const AdminProdMng = () => {
               <p>{element.status ? element.status : 'Active'}</p>
             </div>
             <div className='admin-prod-action'>
-              <BiEdit className='admin-prod-edit-icon' />
+              <Link to={'/admin-page/edit-product'}>
+                <BiEdit
+                  className='admin-prod-edit-icon'
+                  onClick={() => {
+                    appValue.handleGetProd(element);
+                  }}
+                />
+              </Link>
               <FiDelete
                 className='admin-prod-delete-icon'
                 onClick={() =>
