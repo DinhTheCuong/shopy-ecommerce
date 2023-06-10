@@ -28,6 +28,10 @@
 }
 
 .add-prod-form-input input:focus {
+  box-shadow: 0 0 8px var(--default-after-color);
+}
+
+.add-prod-form-input input:focus {
   outline: none;
 }
 
@@ -48,6 +52,12 @@ input::-webkit-inner-spin-button {
 
 .add-prod-form-input textarea:focus {
   outline: none;
+  box-shadow: 0 0 8px var(--default-after-color);
+}
+
+.update-prod-btn {
+  display: flex;
+  justify-content: space-between;
 }
 
 .add-prod-btn {
@@ -62,8 +72,40 @@ input::-webkit-inner-spin-button {
   background-color: #26ba2d;
 }
 
+.del-prod-btn {
+  cursor: pointer;
+  width: 120px;
+  height: 40px;
+  border-radius: 4px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #c31f1f;
+}
+
+.cancel-prod-btn {
+  cursor: pointer;
+  width: 120px;
+  height: 40px;
+  border-radius: 4px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #6b6666;
+}
+
 .add-prod-btn:hover {
   background-color: var(--default-color);
+}
+
+.del-prod-btn:hover {
+  background-color: #911e1e;
+}
+
+.cancel-prod-btn:hover {
+  background-color: #464242;
 }
 
 #prod-img input {

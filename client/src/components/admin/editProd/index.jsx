@@ -85,6 +85,7 @@ const EditProd = () => {
               onChange={(e) => setReq({ ...req, price: e.target.value })}
               placeholder={prod.price.$numberDecimal}
               type='number'
+              min={0}
             />
           </div>
           <div className='add-prod-form-input'>
@@ -102,6 +103,7 @@ const EditProd = () => {
                   : 0
               }
               type='number'
+              min={0}
             />
           </div>
         </div>
@@ -151,15 +153,37 @@ const EditProd = () => {
             type='img'
           />
         </div>
-        <button
-          onClick={(event) => {
-            event.preventDefault();
-            productActions.editProduct(req, images, options);
-          }}
-          className='add-prod-btn'
-        >
-          Update
-        </button>
+
+        <div className='update-prod-btn'>
+          <button
+            onClick={(event) => {
+              navigate('/admin-page/products-manager');
+            }}
+            className='cancel-prod-btn'
+          >
+            Cancel
+          </button>
+          <button
+            onClick={(event) => {
+              event.preventDefault();
+              if (window.confirm('Are you sure?')) {
+                productActions.editProduct(prod._id, req, images, options);
+              }
+            }}
+            className='add-prod-btn'
+          >
+            Update
+          </button>
+          <button
+            onClick={(event) => {
+              event.preventDefault();
+              productActions.deleteProduct(prod._id, navigate);
+            }}
+            className='del-prod-btn'
+          >
+            Delete
+          </button>
+        </div>
       </form>
     </div>
   );

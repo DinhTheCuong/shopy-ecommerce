@@ -15,6 +15,7 @@ const uploadProd = async (req, imagesUpload, options) => {
   const AuthStr = `Bearer ${USER_TOKEN}`;
 
   if (!options.validateForm()) {
+    window.alert('Please fill all the fields!');
     console.log('No data uploaded!');
     return;
   }

@@ -20,6 +20,7 @@ import { HiOutlineUserAdd } from 'react-icons/hi';
 import { BiLogOut } from 'react-icons/bi';
 import { MdOutlineAdminPanelSettings } from 'react-icons/md';
 import { toast } from 'react-toastify';
+import SearchBar from '../searchBar/index.jsx';
 
 const Header = () => {
   const homeValue = useContext(AppContext);
@@ -75,14 +76,7 @@ const Header = () => {
               alt=''
             />
           </Link>
-          <div className='header-search hide-on-tablet hide-on-mobile'>
-            <input
-              type='text'
-              className='header-search-input'
-              placeholder='Search Products...'
-            />
-            <button className='header-search-btn'>Search</button>
-          </div>
+          <SearchBar />
           <div className='header-link'>
             <div className='header-cart'>
               <Link to='/cart'>
@@ -145,7 +139,7 @@ const Header = () => {
               <div className='header-logout'>
                 {user && user.roles === 'ADMIN' ? (
                   <>
-                    <a href='/admin-page/dashboard'>
+                    <a href='/admin-page/products-manager'>
                       <MdOutlineAdminPanelSettings className='user-icon-option' />
                       Admin Page
                     </a>

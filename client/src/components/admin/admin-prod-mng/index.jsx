@@ -34,51 +34,53 @@ const AdminProdMng = () => {
           <div className='admin-prod-header-item'>STATUS</div>
           <div className='admin-prod-header-item'>ACTION</div>
         </div>
-        {viewProducts.map((element, index) => (
-          <div
-            key={element._id}
-            className='admin-prod-mng-card'
-          >
-            <div className='admin-prod-serrial'>
-              {element.serial ? element.serial : index + 1}
-            </div>
-            <div className='admin-prod-name'>
-              <img
-                src={element.images[0]}
-                alt='product'
-              />
-              <p>{element.title}</p>
-            </div>
-            <div className='admin-prod-quantity'>
-              {element.quantity ? element.quantity : '9999'}
-            </div>
-            <div className='admin-prod-price'>
-              <span>$ </span> {element.price.$numberDecimal}
-            </div>
-            <div className='admin-prod-rate'>
-              {element.rating ? element.rating : 0}
-            </div>
-            <div className='admin-prod-status'>
-              <p>{element.status ? element.status : 'Active'}</p>
-            </div>
-            <div className='admin-prod-action'>
-              <Link to={'/admin-page/edit-product'}>
-                <BiEdit
-                  className='admin-prod-edit-icon'
-                  onClick={() => {
-                    appValue.handleGetProd(element);
-                  }}
+        <div className='admin-prod-mng-container'>
+          {viewProducts.map((element, index) => (
+            <div
+              key={element._id}
+              className='admin-prod-mng-card'
+            >
+              <div className='admin-prod-serrial'>
+                {element.serial ? element.serial : index + 1}
+              </div>
+              <div className='admin-prod-name'>
+                <img
+                  src={element.images[0]}
+                  alt='product'
                 />
-              </Link>
-              <FiDelete
-                className='admin-prod-delete-icon'
-                onClick={() =>
-                  productActions.deleteProduct(element._id, navigate)
-                }
-              />
+                <p>{element.title}</p>
+              </div>
+              <div className='admin-prod-quantity'>
+                {element.quantity ? element.quantity : '9999'}
+              </div>
+              <div className='admin-prod-price'>
+                <span>$ </span> {element.price.$numberDecimal}
+              </div>
+              <div className='admin-prod-rate'>
+                {element.rating ? element.rating : 0}
+              </div>
+              <div className='admin-prod-status'>
+                <p>{element.status ? element.status : 'Active'}</p>
+              </div>
+              <div className='admin-prod-action'>
+                <Link to={'/admin-page/edit-product'}>
+                  <BiEdit
+                    className='admin-prod-edit-icon'
+                    onClick={() => {
+                      appValue.handleGetProd(element);
+                    }}
+                  />
+                </Link>
+                <FiDelete
+                  className='admin-prod-delete-icon'
+                  onClick={() =>
+                    productActions.deleteProduct(element._id, navigate)
+                  }
+                />
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

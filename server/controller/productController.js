@@ -3,7 +3,7 @@ const uploadCloud = require("../cloudinary");
 const productController = (router, middleware, service) => {
   const productService = service;
 
-  // Upload Image
+  // Upload Image to Cloudinary
   router.post(
     "/upload",
     middleware,
@@ -35,6 +35,7 @@ const productController = (router, middleware, service) => {
     }
   });
 
+  // Get All Product
   router.get("/", async (req, res, next) => {
     try {
       const prod = await productService.getAllProduct();
@@ -48,6 +49,7 @@ const productController = (router, middleware, service) => {
     }
   });
 
+  // Get Product By Name
   router.get("/name/:name", async (req, res, next) => {
     const { name } = req.params;
     try {
@@ -60,6 +62,7 @@ const productController = (router, middleware, service) => {
     }
   });
 
+  // Get Product By ID
   router.get("/id/:id", async (req, res, next) => {
     const { id } = req.params;
     try {
@@ -72,6 +75,7 @@ const productController = (router, middleware, service) => {
     }
   });
 
+  // Get Product By Rate
   router.get("/rate/:rate", async (req, res, next) => {
     const { rate } = req.params;
     try {
@@ -84,10 +88,13 @@ const productController = (router, middleware, service) => {
     }
   });
 
+  // Update Product
   router.put("/:id", middleware, async (req, res, next) => {
     const { id } = req.params;
+    const payload = req.body;
     try {
-      const prod = await productService.updateProductById(id);
+      const prod = await productService.updateProductById(id, payload);
+      console.log("Product has been updated!");
       res.status(200).json(prod);
     } catch (error) {
       res.json({
@@ -96,6 +103,7 @@ const productController = (router, middleware, service) => {
     }
   });
 
+  // Delete Product By ID
   router.delete("/id/:id", middleware, async (req, res, next) => {
     const { id } = req.params;
     try {
@@ -110,6 +118,7 @@ const productController = (router, middleware, service) => {
     }
   });
 
+  // Delete Product By Name
   router.delete("/name/:name", middleware, async (req, res, next) => {
     const { name } = req.params;
     try {

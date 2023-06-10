@@ -74,7 +74,8 @@
 }
 
 .header-search-input:focus {
-  outline: none;
+  outline: 1px solid var(--default-after-color);
+  box-shadow: 0 0 8px var(--default-after-color);
 }
 
 .header-search-btn {

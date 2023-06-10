@@ -135,15 +135,27 @@ const AddProd = () => {
             type='img'
           />
         </div>
-        <button
-          onClick={(event) => {
-            event.preventDefault();
-            uploadProd(req, images, options);
-          }}
-          className='add-prod-btn'
-        >
-          Add
-        </button>
+        <div className='update-prod-btn'>
+          <button
+            onClick={() => {
+              navigate('/admin-page/products-manager');
+            }}
+            className='cancel-prod-btn'
+          >
+            Cancel
+          </button>
+          <button
+            onClick={(event) => {
+              event.preventDefault();
+              if (window.confirm('Are you sure?')) {
+                uploadProd(req, images, options);
+              }
+            }}
+            className='add-prod-btn'
+          >
+            Add
+          </button>
+        </div>
       </form>
     </div>
   );

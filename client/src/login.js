@@ -24,7 +24,7 @@ const authorization = async (email, password, options) => {
         options.appValue.setUserData(JSON.parse(localStorage.getItem('user')));
 
         if (user.roles === 'ADMIN') {
-          options.navigate('/admin-page/dashboard', {
+          options.navigate('/admin-page/products-manager', {
             replace: true,
           });
         } else {
