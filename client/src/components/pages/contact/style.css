@@ -4,6 +4,7 @@
 }
 
 .contact-title {
+  color: var(--default-color);
   font-size: 36px;
   font-weight: 600;
   text-align: center;

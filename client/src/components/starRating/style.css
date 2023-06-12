@@ -1,0 +1,10 @@
+.star-rating {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.star-rating .star {
+  margin-right: 4px;
+  color: #ffa800;
+}

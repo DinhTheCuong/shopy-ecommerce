@@ -147,7 +147,7 @@ const Header = () => {
                       href='/'
                       onClick={handleLogout}
                     >
-                      <BiLogOut className='user-icon-option' />
+                      <BiLogOut className='user-icon-option' /> 
                       Logout
                     </a>
                   </>

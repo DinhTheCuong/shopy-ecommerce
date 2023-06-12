@@ -58,19 +58,18 @@
 }
 
 .header-search {
-  width: 514px;
+  width: 423px;
   display: flex;
 }
 
 .header-search-input {
   height: 40px;
-  width: 100%;
+  width: calc(100%);
   font-size: 16px;
-  padding: 16px 20px;
+  padding: 16px 16px 16px 40px;
   border: 1px solid #989898;
-  border-radius: 4px;
+  border-radius: 6px;
   color: #8e8e8e;
-  margin-right: 10px;
 }
 
 .header-search-input:focus {
@@ -151,6 +150,17 @@
   position: relative;
 }
 
+.header-user::before {
+  display: block;
+  position: absolute;
+  content: '';
+  width: 72px;
+  height: 24px;
+  right: 0;
+  top: 30px;
+  background-color: transparent;
+}
+
 .header-user-email {
   margin-left: 32px;
   color: var(--primary-color);
@@ -199,14 +209,7 @@
   border: none;
 }
 
-.header-user .header-logout::before {
-  display: block;
-  position: absolute;
-  content: '';
-  width: 64px;
-  height: 24px;
-  top: -20px;
-  background-color: transparent;
+.header-user .header-logout::after {
 }
 
 .user-icon-option {

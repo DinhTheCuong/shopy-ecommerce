@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { AppContext } from '../../App';
 import { Link } from 'react-router-dom';
 import { IoCloseSharp } from 'react-icons/io5';
+import { RiSearchLine } from 'react-icons/ri';
 
 import './style.css';
 
@@ -30,6 +31,7 @@ const SearchBar = () => {
   return (
     <div className='search-bar'>
       <div className='header-search hide-on-tablet hide-on-mobile'>
+        <RiSearchLine className='search-icon' />
         <input
           type='text'
           id='search-input'
@@ -39,49 +41,57 @@ const SearchBar = () => {
             handleChange(e.target.value);
           }}
         />
-        <IoCloseSharp
-          onClick={() => {
-            document.getElementById('search-input').value = '';
-            document.getElementById('search-result').classList.add('hide');
-          }}
-          className='search-del-icon'
-        />
-        <button className='header-search-btn'>Search</button>
+
+        {/* <button className='header-search-btn'>Search</button> */}
       </div>
       {searchInput.length > 0 ? (
-        <div
-          id='search-result'
-          className='search-result'
-        >
-          <p className='search-result-header'>Search Result</p>
-          <div className='search-result-container'>
-            {searchResult.length > 0 ? (
-              searchResult.map((prod) => (
-                <Link
-                  to='/product-detail'
-                  onClick={() => {
-                    appValue.handleGetProd(prod);
-                    document.getElementById('search-input').value = '';
-                    document
-                      .getElementById('search-result')
-                      .classList.add('hide');
-                  }}
-                  key={prod._id}
-                  className='search-result-card'
-                >
-                  <img
-                    src={prod.images[0]}
-                    alt=''
-                    className='search-result-img'
-                  />
-                  <p className='search-result-title'>{prod.title}</p>
-                </Link>
-              ))
-            ) : (
-              <div className='search-result-card'>No products found...</div>
-            )}
+        <>
+          <IoCloseSharp
+            onClick={() => {
+              document.getElementById('search-input').value = null;
+              document.getElementById('search-result').classList.add('hide');
+              document.getElementById('search-del-icon').classList.add('hide');
+            }}
+            className='search-del-icon'
+            id='search-del-icon'
+          />
+          <div
+            id='search-result'
+            className='search-result'
+          >
+            <p className='search-result-header'>Search Result</p>
+            <div className='search-result-container'>
+              {searchResult.length > 0 ? (
+                searchResult.map((prod) => (
+                  <Link
+                    to='/product-detail'
+                    onClick={() => {
+                      appValue.handleGetProd(prod);
+                      document.getElementById('search-input').value = '';
+                      document
+                        .getElementById('search-del-icon')
+                        .classList.add('hide');
+                      document
+                        .getElementById('search-result')
+                        .classList.add('hide');
+                    }}
+                    key={prod._id}
+                    className='search-result-card'
+                  >
+                    <img
+                      src={prod.images[0]}
+                      alt=''
+                      className='search-result-img'
+                    />
+                    <p className='search-result-title'>{prod.title}</p>
+                  </Link>
+                ))
+              ) : (
+                <div className='search-result-card'>No products found...</div>
+              )}
+            </div>
           </div>
-        </div>
+        </>
       ) : (
         <></>
       )}

@@ -94,14 +94,10 @@
   margin-right: 6px;
 }
 
-.product-star-icon {
-  color: #ffa800;
-  margin-bottom: 20px;
-}
-
 .product-name {
-  font-size: 20px;
   color: #000;
+  font-size: 20px;
+  font-weight: 600;
   text-decoration: none;
   display: -webkit-box;
   -webkit-line-clamp: 1;

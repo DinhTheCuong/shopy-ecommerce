@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { BsArrowRight } from 'react-icons/bs';
 import { BsBag } from 'react-icons/bs';
 import { AiFillStar } from 'react-icons/ai';
+import StarRating from '../starRating/index.jsx';
 import './style.css';
 
 const ProductsSection = (props) => {
@@ -39,9 +40,7 @@ const ProductsSection = (props) => {
             </div>
             <div className='product-sub'>
               <div>
-                <AiFillStar className='product-star-icon' />
-                <AiFillStar className='product-star-icon' />
-                <AiFillStar className='product-star-icon' />
+                <StarRating rating={element.rating ? element.rating : 5} />
               </div>
               <Link
                 to='/product-detail'

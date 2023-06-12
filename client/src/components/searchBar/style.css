@@ -81,7 +81,7 @@
 
 .search-del-icon {
   position: absolute;
-  right: 100px;
+  right: 10px;
   top: 10px;
   font-size: 20px;
   color: #afacac;
@@ -90,4 +90,12 @@
 
 .search-del-icon:hover {
   color: var(--text-color);
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 9px;
+  color: var(--default-after-color);
+  font-size: 22px;
 }
