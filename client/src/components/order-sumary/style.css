@@ -16,6 +16,12 @@
 
 .order-list {
   margin-bottom: 60px;
+  height: 32vh;
+  overflow-y: scroll;
+}
+
+.order-list::-webkit-scrollbar {
+  display: none;
 }
 
 .order-item {
