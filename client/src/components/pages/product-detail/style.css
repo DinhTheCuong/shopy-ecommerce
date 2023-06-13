@@ -51,6 +51,16 @@
   margin: 24px 0 16px;
 }
 
+.prod-detail-rating {
+  display: flex;
+  align-items: center;
+}
+
+.prod-detail-review {
+  font-size: 14px;
+  margin: 0 0 8px 12px;
+}
+
 .prod-detail-brand {
   color: #555;
 }

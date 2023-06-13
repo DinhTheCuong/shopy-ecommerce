@@ -4,7 +4,14 @@ const StarRating = ({ rating }) => {
   return (
     <div className='star-rating'>
       {[...Array(rating)].map(() => {
-        return <span className='star'>&#9733;</span>;
+        return (
+          <span
+            key={Math.random()}
+            className='star'
+          >
+            &#9733;
+          </span>
+        );
       })}
     </div>
   );

@@ -3,7 +3,6 @@ import { AppContext } from '../../App.js';
 import { Link } from 'react-router-dom';
 import { BsArrowRight } from 'react-icons/bs';
 import { BsBag } from 'react-icons/bs';
-import { AiFillStar } from 'react-icons/ai';
 import StarRating from '../starRating/index.jsx';
 import './style.css';
 
@@ -39,9 +38,7 @@ const ProductsSection = (props) => {
               />
             </div>
             <div className='product-sub'>
-              <div>
-                <StarRating rating={element.rating ? element.rating : 5} />
-              </div>
+              <StarRating rating={element.rating ? element.rating : 5} />
               <Link
                 to='/product-detail'
                 onClick={() => appValue.handleGetProd(element)}

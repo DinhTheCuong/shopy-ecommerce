@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../../../App';
+import StarRating from '../../starRating';
 import './style.css';
 import { BsBag } from 'react-icons/bs';
-import { AiFillStar } from 'react-icons/ai';
 
 const AllProducts = () => {
   const appValue = useContext(AppContext);
@@ -94,11 +94,7 @@ const AllProducts = () => {
                 />
               </div>
               <div className='product-sub'>
-                <div>
-                  <AiFillStar className='product-star-icon' />
-                  <AiFillStar className='product-star-icon' />
-                  <AiFillStar className='product-star-icon' />
-                </div>
+                <StarRating rating={prod.rating ? prod.rating : 5} />
                 <Link
                   to='/product-detail'
                   onClick={() => appValue.handleGetProd(prod)}

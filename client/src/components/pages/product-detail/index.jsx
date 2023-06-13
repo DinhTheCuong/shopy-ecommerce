@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import './style.css';
 import { AppContext } from '../../../App';
+import StarRating from '../../starRating/index.jsx';
 import Slider from 'react-slick';
 
 const ProductDetail = () => {
@@ -29,17 +30,17 @@ const ProductDetail = () => {
           </Slider>
         </div>
         <div className='prod-detail-content'>
-          <p className='prod-detail-category'>
-            {prod.category}
-          </p>
+          <p className='prod-detail-category'>{prod.category}</p>
           <p className='prod-detail-title'>{prod.title}</p>
+          <div className='prod-detail-rating'>
+            <StarRating rating={prod.rating ? prod.rating : 5} />
+            <span className='prod-detail-review'>
+              {prod.review ? prod.review : 2} Reviews
+            </span>
+          </div>
           <p className='prod-detail-brand'>{prod.brand}</p>
-          <p className='prod-detail-price'>
-            {prod.price.$numberDecimal} $
-          </p>
-          <p className='prod-detail-description'>
-            {prod.description}
-          </p>
+          <p className='prod-detail-price'>{prod.price.$numberDecimal} $</p>
+          <p className='prod-detail-description'>{prod.description}</p>
           <p className='prod-detail-amount'>
             <span>-</span>1<span>+</span>
           </p>
@@ -55,32 +56,26 @@ const ProductDetail = () => {
         <div className='pro-intro'>
           <p className='prod-intro-title'>Introduction</p>
           <p>
-            Lorem ipsum, dolor sit amet consectetur
-            adipisicing elit. Natus officia libero veritatis
-            aliquam quis, ab animi totam neque asperiores
-            quidem dignissimos deserunt aspernatur adipisci
-            sapiente aut accusantium est, minima in. Lorem
-            ipsum dolor sit amet consectetur, adipisicing
-            elit. Placeat quaerat cupiditate corporis
-            expedita eaque nemo esse in. Inventore nemo non
-            totam laboriosam ad voluptatum, reiciendis quas,
-            optio tempore magnam repellendus.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus
+            officia libero veritatis aliquam quis, ab animi totam neque
+            asperiores quidem dignissimos deserunt aspernatur adipisci sapiente
+            aut accusantium est, minima in. Lorem ipsum dolor sit amet
+            consectetur, adipisicing elit. Placeat quaerat cupiditate corporis
+            expedita eaque nemo esse in. Inventore nemo non totam laboriosam ad
+            voluptatum, reiciendis quas, optio tempore magnam repellendus.
           </p>
         </div>
         <div className='pro-intro'>
           <p className='prod-intro-title'>Features</p>
           <p>
-            Lorem ipsum, dolor sit amet consectetur
-            adipisicing elit. Natus officia libero veritatis
-            aliquam quis, ab animi totam neque asperiores
-            quidem dignissimos deserunt aspernatur adipisci
-            sapiente aut accusantium est, minima in. Lorem
-            ipsum dolor sit amet, consectetur adipisicing
-            elit. Accusantium obcaecati odio aspernatur,
-            quisquam sapiente doloribus, illo nisi delectus
-            tempore veritatis voluptatem ea placeat, tenetur
-            maiores necessitatibus. Voluptate repudiandae
-            assumenda illo.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus
+            officia libero veritatis aliquam quis, ab animi totam neque
+            asperiores quidem dignissimos deserunt aspernatur adipisci sapiente
+            aut accusantium est, minima in. Lorem ipsum dolor sit amet,
+            consectetur adipisicing elit. Accusantium obcaecati odio aspernatur,
+            quisquam sapiente doloribus, illo nisi delectus tempore veritatis
+            voluptatem ea placeat, tenetur maiores necessitatibus. Voluptate
+            repudiandae assumenda illo.
           </p>
         </div>
       </div>

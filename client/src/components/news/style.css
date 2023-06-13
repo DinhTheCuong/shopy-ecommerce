@@ -27,11 +27,11 @@
 }
 
 .news-cart-left a {
+  color: var(--default-color);
   padding-left: 24px;
   margin-top: 16px;
   font-size: 24px;
   font-weight: 600;
-  color: var(--text-color);
   text-decoration: underline;
   display: block;
 }
