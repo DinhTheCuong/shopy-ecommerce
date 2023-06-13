@@ -8,7 +8,9 @@ import './style.css';
 
 const ProductsSection = (props) => {
   const appValue = useContext(AppContext);
-  const viewProducts = appValue.data.slice(0, 4);
+  const viewProducts = appValue.data
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 4);
   return (
     <div
       className='products-section'
