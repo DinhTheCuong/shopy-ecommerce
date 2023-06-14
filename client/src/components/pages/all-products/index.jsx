@@ -1,13 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../../../App';
 import StarRating from '../../starRating';
 import './style.css';
 import { BsBag } from 'react-icons/bs';
+import filter from './filterProd';
 
 const AllProducts = () => {
   const appValue = useContext(AppContext);
-  const viewAllProducts = appValue.data;
+  const allProducts = appValue.data;
+
+  const [products, setProducts] = useState(allProducts);
+
+  console.log(products);
 
   return (
     <div className='all-products'>
@@ -15,58 +20,158 @@ const AllProducts = () => {
         <div className='sidebar-product-item'>
           <p className='sidebar-product-item-title'>Categories</p>
           <div className='sidebar-categories-item'>
-            <input type='checkbox' />
-            <p>Mobile</p>
+            <input
+              type='radio'
+              name='category'
+              id='all'
+              onChange={() => setProducts(allProducts)}
+              defaultChecked
+            />
+            <label htmlFor='all'>All</label>
           </div>
           <div className='sidebar-categories-item'>
-            <input type='checkbox' />
-            <p>Laptop</p>
+            <input
+              type='radio'
+              name='category'
+              id='mobile'
+              onChange={(e) =>
+                filter(
+                  e.target.value,
+                  'category',
+                  'mobile',
+                  products,
+                  setProducts
+                )
+              }
+            />
+            <label htmlFor='mobile'>Mobile</label>
           </div>
           <div className='sidebar-categories-item'>
-            <input type='checkbox' />
-            <p>Gaming</p>
+            <input
+              type='radio'
+              name='category'
+              id='laptop'
+              onChange={(e) =>
+                filter(
+                  e.target.value,
+                  'category',
+                  'laptop',
+                  products,
+                  setProducts
+                )
+              }
+            />
+            <label htmlFor='laptop'>Laptop</label>
           </div>
           <div className='sidebar-categories-item'>
-            <input type='checkbox' />
-            <p>Accessorie</p>
+            <input
+              type='radio'
+              name='category'
+              id='watch'
+              onChange={(e) =>
+                filter(
+                  e.target.value,
+                  'category',
+                  'watch',
+                  products,
+                  setProducts
+                )
+              }
+            />
+            <label htmlFor='watch'>Watch</label>
+          </div>
+          <div className='sidebar-categories-item'>
+            <input
+              type='radio'
+              name='category'
+              id='accessories'
+              onChange={(e) =>
+                filter(
+                  e.target.value,
+                  'category',
+                  'accessories',
+                  products,
+                  setProducts
+                )
+              }
+            />
+            <label htmlFor='accessories'>Accessories</label>
           </div>
         </div>
         <div className='sidebar-product-item'>
           <p className='sidebar-product-item-title'>Brands</p>
           <div className='sidebar-categories-item'>
-            <input type='checkbox' />
-            <p>Apple</p>
+            <input
+              type='radio'
+              name='brand'
+              id='allBrands'
+              onChange={() => setProducts(allProducts)}
+              defaultChecked
+            />
+            <label htmlFor='allBrands'>All</label>
           </div>
           <div className='sidebar-categories-item'>
-            <input type='checkbox' />
-            <p>Samsung</p>
+            <input
+              type='radio'
+              name='brand'
+              id='apple'
+              onChange={(e) =>
+                filter(e.target.value, 'brand', 'apple', products, setProducts)
+              }
+            />
+            <label htmlFor='apple'>Apple</label>
           </div>
           <div className='sidebar-categories-item'>
-            <input type='checkbox' />
-            <p>Microsoft</p>
+            <input
+              type='radio'
+              name='brand'
+              id='samsung'
+              onChange={(e) =>
+                filter(
+                  e.target.value,
+                  'brand',
+                  'samsung',
+                  products,
+                  setProducts
+                )
+              }
+            />
+            <label htmlFor='samsung'>Samsung</label>
           </div>
           <div className='sidebar-categories-item'>
-            <input type='checkbox' />
-            <p>Lenovo</p>
+            <input
+              type='radio'
+              name='brand'
+              id='msi'
+              onChange={(e) =>
+                filter(e.target.value, 'brand', 'msi', products, setProducts)
+              }
+            />
+            <label htmlFor='msi'>MSI</label>
           </div>
           <div className='sidebar-categories-item'>
-            <input type='checkbox' />
-            <p>MSI</p>
-          </div>
-          <div className='sidebar-categories-item'>
-            <input type='checkbox' />
-            <p>Google</p>
-          </div>
-          <div className='sidebar-categories-item'>
-            <input type='checkbox' />
-            <p>Others</p>
+            <input
+              type='radio'
+              name='brand'
+              id='others'
+              onChange={(e) =>
+                filter(
+                  e.target.value,
+                  'category',
+                  'accessories',
+                  products,
+                  setProducts
+                )
+              }
+            />
+            <label htmlFor='others'>Others</label>
           </div>
         </div>
       </div>
       <div className='all-products-section'>
         <div className='all-prod-filter'>
           <div className='quantity-result'>
-            Showing <span>{viewAllProducts.length}</span> results
+            Showing <span>{products.length}</span> results
           </div>
           <div className='sort'>
             <p>Sort by:</p>
@@ -81,7 +186,7 @@ const AllProducts = () => {
           </div>
         </div>
         <div className='all-prod-view'>
-          {viewAllProducts.map((prod) => (
+          {products.map((prod) => (
             <div
               className='product-card'
               key={prod._id}

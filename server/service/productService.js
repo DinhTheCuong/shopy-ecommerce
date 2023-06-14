@@ -23,6 +23,22 @@ productService.getProductByName = async (desc) => {
   return prod;
 };
 
+productService.getProductByCategory = async (value) => {
+  const prod = await productModel.find({ category: value });
+  if (!prod) {
+    console.log("Get product by category error: Product Not Found!");
+  }
+  return prod;
+};
+
+productService.getProductByBrand = async (value) => {
+  const prod = await productModel.find({ brand: value });
+  if (!prod) {
+    console.log("Get product by category error: Product Not Found!");
+  }
+  return prod;
+};
+
 productService.getProductById = async (id) => {
   const prod = await productModel.findById({ _id: id });
   if (!prod) {

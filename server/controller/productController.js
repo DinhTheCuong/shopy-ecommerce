@@ -62,6 +62,32 @@ const productController = (router, middleware, service) => {
     }
   });
 
+  // Get Product By Category
+  router.get("/category/:value", async (req, res, next) => {
+    const { value } = req.params;
+    try {
+      const prod = await productService.getProductByCategory(value);
+      res.status(200).json(prod);
+    } catch (error) {
+      res.json({
+        message: "Get product failed!",
+      });
+    }
+  });
+
+  // Get Product By Brand
+  router.get("/brand/:value", async (req, res, next) => {
+    const { value } = req.params;
+    try {
+      const prod = await productService.getProductByBrand(value);
+      res.status(200).json(prod);
+    } catch (error) {
+      res.json({
+        message: "Get product failed!",
+      });
+    }
+  });
+
   // Get Product By ID
   router.get("/id/:id", async (req, res, next) => {
     const { id } = req.params;

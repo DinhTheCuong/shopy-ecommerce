@@ -38,7 +38,7 @@ const ProductDetail = () => {
               {prod.review ? prod.review : 2} Reviews
             </span>
           </div>
-          <p className='prod-detail-brand'>{prod.brand}</p>
+          <p className='prod-detail-brand'>{prod.brand.toUpperCase()}</p>
           <p className='prod-detail-price'>{prod.price.$numberDecimal} $</p>
           <p className='prod-detail-description'>{prod.description}</p>
           <p className='prod-detail-amount'>

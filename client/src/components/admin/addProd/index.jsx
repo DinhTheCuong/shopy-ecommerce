@@ -60,7 +60,9 @@ const AddProd = () => {
           <div className='add-prod-form-input'>
             <label>Category</label>
             <input
-              onChange={(e) => setReq({ ...req, category: e.target.value })}
+              onChange={(e) =>
+                setReq({ ...req, category: e.target.value.toLowerCase() })
+              }
               placeholder='Category'
               type='text'
             />
@@ -68,7 +70,9 @@ const AddProd = () => {
           <div className='add-prod-form-input'>
             <label>Brand</label>
             <input
-              onChange={(e) => setReq({ ...req, brand: e.target.value })}
+              onChange={(e) =>
+                setReq({ ...req, brand: e.target.value.toLowerCase() })
+              }
               placeholder='Brand'
               type='text'
             />

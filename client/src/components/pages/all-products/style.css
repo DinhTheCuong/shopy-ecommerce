@@ -9,9 +9,9 @@
 
 .sidebar-product {
   background-color: #fff;
-  width: 352px;
-  height: 630px;
-  padding: 20px 20px 0;
+  width: 344px;
+  height: 578px;
+  padding: 20px 32px 0;
   border-radius: 8px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.09);
 }
@@ -41,6 +41,10 @@
 
 .sidebar-categories-item input {
   margin-right: 24px;
+  cursor: pointer;
+}
+
+.sidebar-categories-item label {
   cursor: pointer;
 }
 
@@ -92,12 +96,18 @@
 /* All-pro */
 .all-prod-view {
   width: 100%;
-  height: 100%;
+  height: 142vh;
   margin-top: 32px;
+  padding: 0 12px;
   display: flex;
   column-gap: 24px;
   justify-content: space-between;
   flex-wrap: wrap;
+  overflow-y: scroll;
+}
+
+.all-prod-view::-webkit-scrollbar {
+  display: none;
 }
 
 .all-prod-view .product-card {

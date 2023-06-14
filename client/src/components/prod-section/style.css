@@ -51,7 +51,7 @@
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.09);
   /* border: 1px solid #1868d5; */
   border-radius: 12px;
-  padding: 16px;
+  padding: 16px 16px 0;
   margin-bottom: 36px;
   overflow: hidden;
 }
@@ -64,7 +64,7 @@
   overflow: hidden;
 }
 
-.product-thumbnail{
+.product-thumbnail {
   width: 100%;
   height: fit-content;
 }
@@ -114,7 +114,7 @@
 }
 
 .product-price {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   color: #d11212;
   margin: 20px 0;

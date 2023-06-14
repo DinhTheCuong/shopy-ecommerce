@@ -10,7 +10,7 @@ import { RiArrowDropDownLine } from 'react-icons/ri';
 import { RiArrowDropRightLine } from 'react-icons/ri';
 import { CiMobile3 } from 'react-icons/ci';
 import { CiLaptop } from 'react-icons/ci';
-import { IoGameControllerOutline } from 'react-icons/io5';
+import { IoWatchOutline } from 'react-icons/io5';
 import { CiPalette } from 'react-icons/ci';
 import { MdOutlineDeleteForever } from 'react-icons/md';
 import { HiOutlineBars3BottomLeft } from 'react-icons/hi2';
@@ -147,7 +147,7 @@ const Header = () => {
                       href='/'
                       onClick={handleLogout}
                     >
-                      <BiLogOut className='user-icon-option' /> 
+                      <BiLogOut className='user-icon-option' />
                       Logout
                     </a>
                   </>
@@ -201,8 +201,8 @@ const Header = () => {
               </div>
               <div className='category-item'>
                 <Link to='/all-products'>
-                  <IoGameControllerOutline className='category-item-icon' />
-                  <p>Gaming</p>
+                  <IoWatchOutline className='category-item-icon' />
+                  <p>Watch</p>
                   <RiArrowDropRightLine className='category-item-icon' />
                 </Link>
               </div>
@@ -214,7 +214,7 @@ const Header = () => {
                 </Link>
               </div>
             </div>
-          </div> 
+          </div>
           <div className='header-navbar-list'>
             <div className='header-navbar-item'>
               <NavLink
