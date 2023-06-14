@@ -83,7 +83,7 @@ const EditProd = () => {
             <label>Product price</label>
             <input
               onChange={(e) => setReq({ ...req, price: e.target.value })}
-              placeholder={prod.price.$numberDecimal}
+              placeholder={prod.price && prod.price.$numberDecimal}
               type='number'
               min={0}
             />
@@ -98,6 +98,7 @@ const EditProd = () => {
                 })
               }
               placeholder={
+                prod.discountPercentage &&
                 prod.discountPercentage.$numberDecimal
                   ? prod.discountPercentage.$numberDecimal
                   : 0
@@ -122,22 +123,22 @@ const EditProd = () => {
           />
           <div className='prod-img-container'>
             {images.length < 1
-              ? prod.images.map((imageSrc) => (
+              ? (prod.images && prod.images.map((imageSrc) => (
                   <img
                     key={imageSrc}
                     src={imageSrc}
                     alt='not fount'
                     width={'250px'}
                   />
-                ))
-              : imageURLS.map((imageSrc) => (
+                )))
+              : (imageURLS.map((imageSrc) => (
                   <img
                     key={imageSrc}
                     src={imageSrc}
                     alt='not fount'
                     width={'250px'}
                   />
-                ))}
+                )))}
           </div>
         </div>
         <div className='add-prod-form-input'>

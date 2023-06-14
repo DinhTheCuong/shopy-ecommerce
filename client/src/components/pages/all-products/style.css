@@ -95,6 +95,7 @@
   height: 100%;
   margin-top: 32px;
   display: flex;
+  column-gap: 24px;
   justify-content: space-between;
   flex-wrap: wrap;
 }

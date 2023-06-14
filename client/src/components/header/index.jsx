@@ -214,7 +214,7 @@ const Header = () => {
                 </Link>
               </div>
             </div>
-          </div>
+          </div> 
           <div className='header-navbar-list'>
             <div className='header-navbar-item'>
               <NavLink

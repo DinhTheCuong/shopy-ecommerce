@@ -57,13 +57,16 @@
 }
 
 .product-img {
-  width: 100%;
-  height: 300px;
   display: flex;
   align-items: top;
   justify-content: center;
   border-radius: 6px;
   overflow: hidden;
+}
+
+.product-thumbnail{
+  width: 100%;
+  height: fit-content;
 }
 
 .btn-add-to-cart {
@@ -96,7 +99,7 @@
 
 .product-name {
   color: #000;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   text-decoration: none;
   display: -webkit-box;
@@ -111,7 +114,7 @@
 }
 
 .product-price {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   color: #d11212;
   margin: 20px 0;
