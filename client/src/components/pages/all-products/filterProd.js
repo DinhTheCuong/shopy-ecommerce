@@ -1,4 +1,5 @@
 import axios from 'axios';
+// import setFilter from './setFilter';
 
 const filter = (check, filterBy, value, products, setProducts) => {
   const getApi = async (category) => {
@@ -10,6 +11,7 @@ const filter = (check, filterBy, value, products, setProducts) => {
 
   if (check === 'on' && value) {
     getApi(value);
+    // setFilter(products, value);
   }
 };
 

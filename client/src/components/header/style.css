@@ -209,9 +209,6 @@
   border: none;
 }
 
-.header-user .header-logout::after {
-}
-
 .user-icon-option {
   font-size: 28px;
   margin-right: 12px;

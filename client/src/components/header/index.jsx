@@ -21,6 +21,7 @@ import { BiLogOut } from 'react-icons/bi';
 import { MdOutlineAdminPanelSettings } from 'react-icons/md';
 import { toast } from 'react-toastify';
 import SearchBar from '../searchBar/index.jsx';
+import filter from '../pages/all-products/filterProd.js';
 
 const Header = () => {
   const homeValue = useContext(AppContext);
@@ -33,6 +34,7 @@ const Header = () => {
   const handleOpenSidebar = () => {
     document.getElementById('sidebar').style.display = 'block';
   };
+
   let numberOfHomeCart = 0;
   homeValue.homeCart.map((ele) => (numberOfHomeCart += ele.amount));
   const user = JSON.parse(localStorage.getItem('user'));
@@ -186,28 +188,72 @@ const Header = () => {
             </div>
             <div className='category-list'>
               <div className='category-item'>
-                <Link to='/all-products'>
+                <Link
+                  to='/all-products'
+                  onClick={() => {
+                    filter(
+                      'on',
+                      'category',
+                      'mobile',
+                      homeValue.products,
+                      homeValue.setProducts
+                    );
+                  }}
+                >
                   <CiMobile3 className='category-item-icon' />
                   <p>Mobile</p>
                   <RiArrowDropRightLine className='category-item-icon' />
                 </Link>
               </div>
               <div className='category-item'>
-                <Link to='/all-products'>
+                <Link
+                  to='/all-products'
+                  onClick={() =>
+                    filter(
+                      'on',
+                      'category',
+                      'laptop',
+                      homeValue.products,
+                      homeValue.setProducts
+                    )
+                  }
+                >
                   <CiLaptop className='category-item-icon' />
                   <p>Laptop</p>
                   <RiArrowDropRightLine className='category-item-icon' />
                 </Link>
               </div>
               <div className='category-item'>
-                <Link to='/all-products'>
+                <Link
+                  to='/all-products'
+                  onClick={() =>
+                    filter(
+                      'on',
+                      'category',
+                      'watch',
+                      homeValue.products,
+                      homeValue.setProducts
+                    )
+                  }
+                >
                   <IoWatchOutline className='category-item-icon' />
                   <p>Watch</p>
                   <RiArrowDropRightLine className='category-item-icon' />
                 </Link>
               </div>
               <div className='category-item'>
-                <Link to='/all-products'>
+                <Link
+                  to='/all-products'
+                  onClick={() =>
+                    filter(
+                      'on',
+                      'category',
+                      'accessories',
+                      homeValue.products,
+                      homeValue.setProducts
+                    )
+                  }
+                >
                   <CiPalette className='category-item-icon' />
                   <p>Accessories</p>
                   <RiArrowDropRightLine className='category-item-icon' />

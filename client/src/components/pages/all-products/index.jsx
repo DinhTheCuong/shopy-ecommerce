@@ -1,18 +1,15 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../../../App';
 import StarRating from '../../starRating';
 import './style.css';
 import { BsBag } from 'react-icons/bs';
 import filter from './filterProd';
+import sortProduct from './sort';
 
 const AllProducts = () => {
   const appValue = useContext(AppContext);
   const allProducts = appValue.data;
-
-  const [products, setProducts] = useState(allProducts);
-
-  console.log(products);
 
   return (
     <div className='all-products'>
@@ -24,7 +21,7 @@ const AllProducts = () => {
               type='radio'
               name='category'
               id='all'
-              onChange={() => setProducts(allProducts)}
+              onChange={() => appValue.setProducts(allProducts)}
               defaultChecked
             />
             <label htmlFor='all'>All</label>
@@ -39,8 +36,8 @@ const AllProducts = () => {
                   e.target.value,
                   'category',
                   'mobile',
-                  products,
-                  setProducts
+                  appValue.products,
+                  appValue.setProducts
                 )
               }
             />
@@ -56,8 +53,8 @@ const AllProducts = () => {
                   e.target.value,
                   'category',
                   'laptop',
-                  products,
-                  setProducts
+                  appValue.products,
+                  appValue.setProducts
                 )
               }
             />
@@ -73,8 +70,8 @@ const AllProducts = () => {
                   e.target.value,
                   'category',
                   'watch',
-                  products,
-                  setProducts
+                  appValue.products,
+                  appValue.setProducts
                 )
               }
             />
@@ -90,8 +87,8 @@ const AllProducts = () => {
                   e.target.value,
                   'category',
                   'accessories',
-                  products,
-                  setProducts
+                  appValue.products,
+                  appValue.setProducts
                 )
               }
             />
@@ -105,7 +102,7 @@ const AllProducts = () => {
               type='radio'
               name='brand'
               id='allBrands'
-              onChange={() => setProducts(allProducts)}
+              onChange={() => appValue.setProducts(allProducts)}
               defaultChecked
             />
             <label htmlFor='allBrands'>All</label>
@@ -116,7 +113,13 @@ const AllProducts = () => {
               name='brand'
               id='apple'
               onChange={(e) =>
-                filter(e.target.value, 'brand', 'apple', products, setProducts)
+                filter(
+                  e.target.value,
+                  'brand',
+                  'apple',
+                  appValue.products,
+                  appValue.setProducts
+                )
               }
             />
             <label htmlFor='apple'>Apple</label>
@@ -131,8 +134,8 @@ const AllProducts = () => {
                   e.target.value,
                   'brand',
                   'samsung',
-                  products,
-                  setProducts
+                  appValue.products,
+                  appValue.setProducts
                 )
               }
             />
@@ -144,7 +147,13 @@ const AllProducts = () => {
               name='brand'
               id='msi'
               onChange={(e) =>
-                filter(e.target.value, 'brand', 'msi', products, setProducts)
+                filter(
+                  e.target.value,
+                  'brand',
+                  'msi',
+                  appValue.products,
+                  appValue.setProducts
+                )
               }
             />
             <label htmlFor='msi'>MSI</label>
@@ -159,8 +168,8 @@ const AllProducts = () => {
                   e.target.value,
                   'category',
                   'accessories',
-                  products,
-                  setProducts
+                  appValue.products,
+                  appValue.setProducts
                 )
               }
             />
@@ -173,7 +182,9 @@ const AllProducts = () => {
           <div className='quantity-result'>
             Showing{' '}
             <span>
-              {products.length === 0 ? allProducts.length : products.length}
+              {appValue.products.length === 0
+                ? allProducts.length
+                : appValue.products.length}
             </span>{' '}
             results
           </div>
@@ -181,16 +192,26 @@ const AllProducts = () => {
             <p>Sort by:</p>
             <select
               name=''
-              id=''
+              id='sort'
+              onChange={(e) =>
+                sortProduct(
+                  e.target.value,
+                  appValue.products.length === 0
+                    ? allProducts
+                    : appValue.products,
+                  appValue.setProducts,
+                  allProducts
+                )
+              }
             >
-              <option value=''>Default</option>
-              <option value=''>Price: Low To High</option>
-              <option value=''>Price: High To Low</option>
+              <option value='default'>Default</option>
+              <option value='increase'>Price: Low To High</option>
+              <option value='decrease'>Price: High To Low</option>
             </select>
           </div>
         </div>
         <div className='all-prod-view'>
-          {products.length === 0
+          {appValue.products.length === 0
             ? allProducts.map((prod) => (
                 <div
                   className='product-card'
@@ -226,7 +247,7 @@ const AllProducts = () => {
                   </button>
                 </div>
               ))
-            : products.map((prod) => (
+            : appValue.products.map((prod) => (
                 <div
                   className='product-card'
                   key={prod._id}

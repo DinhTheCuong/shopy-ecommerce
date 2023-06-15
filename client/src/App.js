@@ -31,6 +31,8 @@ function App() {
   const [singleProd, setSingleProd] = useState({});
   const [userData, setUserData] = useState({});
   const [data, setData] = useState([]);
+  const [products, setProducts] = useState(data);
+
   let totalPrice = 0;
 
   useEffect(() => {
@@ -68,6 +70,7 @@ function App() {
       <AppContext.Provider
         value={{
           data,
+          setData,
           homeCart,
           setHomeCart,
           totalPrice,
@@ -77,6 +80,8 @@ function App() {
           setSingleProd,
           userData,
           setUserData,
+          products,
+          setProducts,
         }}
       >
         <ScrollToTop />
