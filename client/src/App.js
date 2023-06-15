@@ -62,7 +62,7 @@ function App() {
   const handleGetProd = (prod) => {
     setSingleProd(prod);
   };
-  
+
   return (
     <div className='App'>
       <AppContext.Provider
@@ -116,7 +116,7 @@ function App() {
             element={<Register />}
           />
           <Route
-            path='/product-detail'
+            path='/product-detail/:id'
             element={<ProductDetail />}
           />
           <Route

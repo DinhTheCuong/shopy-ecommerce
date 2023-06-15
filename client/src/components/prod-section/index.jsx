@@ -1,16 +1,19 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../../App.js';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BsArrowRight } from 'react-icons/bs';
 import { BsBag } from 'react-icons/bs';
 import StarRating from '../starRating/index.jsx';
+import getProd from './getProd.js';
 import './style.css';
 
 const ProductsSection = (props) => {
+  const navigate = useNavigate();
   const appValue = useContext(AppContext);
   const viewProducts = appValue.data
     .sort(() => Math.random() - 0.5)
     .slice(0, 4);
+
   return (
     <div
       className='products-section'
@@ -42,7 +45,7 @@ const ProductsSection = (props) => {
             <div className='product-sub'>
               <StarRating rating={element.rating ? element.rating : 5} />
               <Link
-                to='/product-detail'
+                to='/product-detail/'
                 onClick={() => appValue.handleGetProd(element)}
                 className='product-name'
               >

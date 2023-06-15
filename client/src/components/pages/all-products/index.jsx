@@ -171,7 +171,11 @@ const AllProducts = () => {
       <div className='all-products-section'>
         <div className='all-prod-filter'>
           <div className='quantity-result'>
-            Showing <span>{products.length}</span> results
+            Showing{' '}
+            <span>
+              {products.length === 0 ? allProducts.length : products.length}
+            </span>{' '}
+            results
           </div>
           <div className='sort'>
             <p>Sort by:</p>
@@ -186,41 +190,77 @@ const AllProducts = () => {
           </div>
         </div>
         <div className='all-prod-view'>
-          {products.map((prod) => (
-            <div
-              className='product-card'
-              key={prod._id}
-            >
-              <div className='product-img'>
-                <img
-                  className='product-thumbnail'
-                  src={prod.images[0]}
-                  alt=''
-                />
-              </div>
-              <div className='product-sub'>
-                <StarRating rating={prod.rating ? prod.rating : 5} />
-                <Link
-                  to='/product-detail'
-                  onClick={() => appValue.handleGetProd(prod)}
-                  className='product-name'
+          {products.length === 0
+            ? allProducts.map((prod) => (
+                <div
+                  className='product-card'
+                  key={prod._id}
                 >
-                  {prod.title}
-                </Link>
-                <p className='product-price'>
-                  {' '}
-                  <span>$</span> {prod.price.$numberDecimal}
-                </p>
-              </div>
-              <button
-                onClick={() => appValue.handleAddToCart(prod)}
-                className='btn-add-to-cart'
-              >
-                <BsBag className='add-to-cart-icon' />
-                Add To Cart
-              </button>
-            </div>
-          ))}
+                  <div className='product-img'>
+                    <img
+                      className='product-thumbnail'
+                      src={prod.images[0]}
+                      alt=''
+                    />
+                  </div>
+                  <div className='product-sub'>
+                    <StarRating rating={prod.rating ? prod.rating : 5} />
+                    <Link
+                      to='/product-detail'
+                      onClick={() => appValue.handleGetProd(prod)}
+                      className='product-name'
+                    >
+                      {prod.title}
+                    </Link>
+                    <p className='product-price'>
+                      {' '}
+                      <span>$</span> {prod.price.$numberDecimal}
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => appValue.handleAddToCart(prod)}
+                    className='btn-add-to-cart'
+                  >
+                    <BsBag className='add-to-cart-icon' />
+                    Add To Cart
+                  </button>
+                </div>
+              ))
+            : products.map((prod) => (
+                <div
+                  className='product-card'
+                  key={prod._id}
+                >
+                  <div className='product-img'>
+                    <img
+                      className='product-thumbnail'
+                      src={prod.images[0]}
+                      alt=''
+                    />
+                  </div>
+                  <div className='product-sub'>
+                    <StarRating rating={prod.rating ? prod.rating : 5} />
+                    <Link
+                      to='/product-detail'
+                      onClick={() => appValue.handleGetProd(prod)}
+                      className='product-name'
+                    >
+                      {prod.title}
+                    </Link>
+                    <p className='product-price'>
+                      {' '}
+                      <span>$</span> {prod.price.$numberDecimal}
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => appValue.handleAddToCart(prod)}
+                    className='btn-add-to-cart'
+                  >
+                    <BsBag className='add-to-cart-icon' />
+                    Add To Cart
+                  </button>
+                </div>
+              ))}
         </div>
       </div>
     </div>
