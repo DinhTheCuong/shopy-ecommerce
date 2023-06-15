@@ -116,7 +116,7 @@ function App() {
             element={<Register />}
           />
           <Route
-            path='/product-detail/:id'
+            path='/product-detail'
             element={<ProductDetail />}
           />
           <Route

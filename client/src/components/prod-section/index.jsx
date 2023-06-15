@@ -45,7 +45,7 @@ const ProductsSection = (props) => {
             <div className='product-sub'>
               <StarRating rating={element.rating ? element.rating : 5} />
               <Link
-                to='/product-detail/'
+                to='/product-detail'
                 onClick={() => appValue.handleGetProd(element)}
                 className='product-name'
               >
