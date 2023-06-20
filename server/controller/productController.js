@@ -49,6 +49,21 @@ const productController = (router, middleware, service) => {
     }
   });
 
+  // Get All Product By Page
+  router.get("/page/:page", async (req, res, next) => {
+    const { page } = req.params;
+    try {
+      const prod = await productService.getAllProductByPage(page);
+      res.status(200).json({
+        products: prod,
+      });
+    } catch (error) {
+      res.json({
+        message: "Get product failed!",
+      });
+    }
+  });
+
   // Get Product By Name
   router.get("/name/:name", async (req, res, next) => {
     const { name } = req.params;

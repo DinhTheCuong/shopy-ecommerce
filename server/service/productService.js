@@ -15,6 +15,18 @@ productService.getAllProduct = async () => {
   return prod;
 };
 
+productService.getAllProductByPage = async (page) => {
+  const bookPerPage = 6;
+  const prod = await productModel
+    .find()
+    .skip(bookPerPage * (page - 1))
+    .limit(bookPerPage);
+  if (!prod) {
+    console.log("Get product by name error: Product Not Found!");
+  }
+  return prod;
+};
+
 productService.getProductByName = async (desc) => {
   const prod = await productModel.find({ description: desc });
   if (!prod) {
