@@ -15,6 +15,7 @@ const authorization = async (email, password, options) => {
       const user = {
         access_token: response.data.access_token,
         email: response.data.email,
+        id: response.data._id,
         roles: response.data.roles[0],
         loggedIn: true,
       };

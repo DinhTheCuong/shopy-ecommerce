@@ -12,7 +12,7 @@ const orderController = (router, middleware, service) => {
     }
   });
 
-  router.post("/", async (req, res) => {
+  router.post("/", middleware, async (req, res) => {
     const order = req.body;
     try {
       const or = await orderService.createOrder(order);

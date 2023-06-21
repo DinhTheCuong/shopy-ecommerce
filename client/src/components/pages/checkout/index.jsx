@@ -1,30 +1,48 @@
-import React, {useState} from 'react';
-import './style.css';
+import React, { useState, useContext } from 'react';
+import { AppContext } from '../../../App';
 import CheckoutForm from '../../checkout-form';
 import OrderSummary from '../../order-sumary';
+import createOrder from './creatOrder';
+import { useNavigate } from 'react-router-dom';
+import './style.css';
 
 const Checkout = () => {
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [paymentMethodSelected, setPaymentMethodSelected] =
-    useState(false);
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    setFormSubmitted(true);
-    if (formSubmitted && paymentMethodSelected) {
-      alert('Successful purchase');
+  const navigate = useNavigate();
+  const appValue = useContext(AppContext);
+  const [payMethod, setPayMethod] = useState(false);
+  const prodInfo = appValue.homeCart.map((prod) => ({
+    id: prod._id,
+    amount: prod.amount,
+  }));
+  const options = {
+    navigate,
+  };
+  const user = JSON.parse(localStorage.getItem('user'));
+
+  const handlePay = (e) => {
+    e.preventDefault();
+    if (!user) {
+      alert('Please Login First!');
+      return;
+    }
+
+    if (user && appValue.homeCart.length > 0 && payMethod) {
+      window.confirm('Agree to pay?');
+      createOrder(prodInfo, options);
+      alert('Order Successfully!');
     } else {
-      alert('Invalid information');
+      alert('Invalid information!');
     }
   };
-  const handlePaymentMethodChange = (paymentMethod) => {
-    setPaymentMethodSelected(!!paymentMethod);
+
+  const handlePayMethod = (payMethod) => {
+    setPayMethod(!!payMethod);
   };
+
   return (
     <div className='checkout-page'>
-      <OrderSummary
-        onPaymentMethodChange={handlePaymentMethodChange}
-      />
-      <CheckoutForm onSubmit={handleFormSubmit} />
+      <OrderSummary onPayMethod={handlePayMethod} />
+      <CheckoutForm onSubmit={handlePay} />
     </div>
   );
 };

@@ -3,30 +3,20 @@ import './style.css';
 import { Link } from 'react-router-dom';
 
 const CheckoutForm = ({ onSubmit }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    address: '',
-    phone: '',
-    email: '',
-  });
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  const [formData, setFormData] = useState({});
+
   return (
     <div className='checkout-form'>
-      <p className='checkout-form-title'>
-        Customer information
-      </p>
-      <form onSubmit={onSubmit}>
+      <p className='checkout-form-title'>Customer information</p>
+      <form>
         <div className='checkout-form-item'>
           <label htmlFor='name'>Full Name</label>
           <input
             type='text'
             id='name'
             name='name'
-            value={formData.name}
-            onChange={handleChange}
+            placeholder='Full name...'
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           />
         </div>
         <div className='checkout-form-item'>
@@ -35,8 +25,10 @@ const CheckoutForm = ({ onSubmit }) => {
             type='text'
             id='address'
             name='address'
-            value={formData.address}
-            onChange={handleChange}
+            placeholder='Address...'
+            onChange={(e) =>
+              setFormData({ ...formData, address: e.target.value })
+            }
           />
         </div>
         <div className='checkout-form-item'>
@@ -47,8 +39,10 @@ const CheckoutForm = ({ onSubmit }) => {
             name='phone'
             min='0'
             max='99999999999'
-            value={formData.phone}
-            onChange={handleChange}
+            placeholder='Phone number...'
+            onChange={(e) =>
+              setFormData({ ...formData, phone: e.target.value })
+            }
           />
         </div>
         <div className='checkout-form-item'>
@@ -57,15 +51,18 @@ const CheckoutForm = ({ onSubmit }) => {
             type='email'
             id='email'
             name='email'
-            value={formData.email}
-            onChange={handleChange}
+            placeholder='Email...'
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
           />
         </div>
         <div className='checkout-form-footer'>
           <Link to='/'>Back to Home Page</Link>
           <button
-            type='submit'
+            type='button'
             className='checkout-form-btn'
+            onClick={(e) => onSubmit(e)}
           >
             Pay
           </button>

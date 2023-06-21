@@ -23,6 +23,7 @@ import UsersManager from './components/admin/admin-users-mng';
 import axios from 'axios';
 import AdminProdMng from './components/admin/admin-prod-mng';
 import EditProd from './components/admin/editProd';
+import Order from './components/pages/order-list';
 
 export const AppContext = createContext();
 
@@ -123,6 +124,10 @@ function App() {
           <Route
             path='/product-detail'
             element={<ProductDetail />}
+          />
+          <Route
+            path='/order'
+            element={<Order />}
           />
           <Route
             path='/admin-page'

@@ -8,8 +8,8 @@ const OrderSchema = new Schema(
     },
     listOrder: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "products",
+        id: mongoose.Schema.Types.ObjectId,
+        amount: Number,
       },
     ],
   },

@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
+import logo from '../../assets/images/logo2.png';
+import './style.css';
 import { AppContext } from '../../App.js';
 import { Link, NavLink } from 'react-router-dom';
-import './style.css';
-import logo from '../../assets/images/logo2.png';
 import { BsBag } from 'react-icons/bs';
 import { HiUserCircle } from 'react-icons/hi';
 import { HiOutlineBars3CenterLeft } from 'react-icons/hi2';
@@ -18,10 +18,12 @@ import { GrMapLocation } from 'react-icons/gr';
 import { BiLogIn } from 'react-icons/bi';
 import { HiOutlineUserAdd } from 'react-icons/hi';
 import { BiLogOut } from 'react-icons/bi';
+import { HiOutlineClipboardDocumentList } from 'react-icons/hi2';
 import { MdOutlineAdminPanelSettings } from 'react-icons/md';
 import { toast } from 'react-toastify';
 import SearchBar from '../searchBar/index.jsx';
 import filter from '../pages/all-products/filterProd.js';
+import getOrderList from '../pages/order-list/getOrderList';
 
 const Header = () => {
   const homeValue = useContext(AppContext);
@@ -68,16 +70,16 @@ const Header = () => {
             id='sidebar-icon'
             onClick={handleOpenSidebar}
           />
-          <Link
+          <a
             className='header-logo-link'
-            to='/'
+            href='/'
           >
             <img
               className='header-logo'
               src={logo}
               alt=''
             />
-          </Link>
+          </a>
           <SearchBar />
           <div className='header-link'>
             <div className='header-cart'>
@@ -154,13 +156,22 @@ const Header = () => {
                     </a>
                   </>
                 ) : user ? (
-                  <a
-                    href='/'
-                    onClick={handleLogout}
-                  >
-                    <BiLogOut className='user-icon-option' />
-                    Logout
-                  </a>
+                  <>
+                    <Link
+                      to='/order'
+                      onClick={getOrderList}
+                    >
+                      <HiOutlineClipboardDocumentList className='user-icon-option' />
+                      Order List
+                    </Link>
+                    <a
+                      href='/'
+                      onClick={handleLogout}
+                    >
+                      <BiLogOut className='user-icon-option' />
+                      Logout
+                    </a>
+                  </>
                 ) : (
                   <>
                     <Link to='/login'>

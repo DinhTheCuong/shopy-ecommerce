@@ -2,18 +2,15 @@ import React, { useState, useContext } from 'react';
 import { AppContext } from '../../App';
 import './style.css';
 
-const OrderSumary = ({ onPaymentMethodChange }) => {
+const OrderSumary = ({ onPayMethod }) => {
   const appValue = useContext(AppContext);
-  const [selectedPaymentMethod, setSelectedPaymentMethod] =
-    useState(null);
-  const [products, setProducts] = useState(
-    appValue.homeCart
-  );
+  const [method, setMethod] = useState(null);
+  const products = appValue.homeCart;
 
-  const handlePaymentMethodChange = (event) => {
-    setSelectedPaymentMethod(event.target.value);
-    if (onPaymentMethodChange) {
-      onPaymentMethodChange(event.target.value);
+  const handlePayMethod = (event) => {
+    setMethod(event.target.value);
+    if (onPayMethod) {
+      onPayMethod(event.target.value);
     }
   };
   return (
@@ -21,21 +18,16 @@ const OrderSumary = ({ onPaymentMethodChange }) => {
       <p className='order-sumary-title'>Order</p>
       <div className='order-list'>
         {products.length === 0 ? (
-          <div className='cart-empty'>
-            Please buy something!
-          </div>
+          <div className='cart-empty'>Please buy something!</div>
         ) : (
-          products.map((product, index) => (
+          products.map((product) => (
             <div
               className='order-item'
-              key={index}
+              key={product._id}
             >
-              <p className='order-item-sub'>
-                {product.title}
-              </p>
+              <p className='order-item-sub'>{product.title}</p>
               <p className='order-quantity'>
-                {product.price.$numberDecimal} $
-                <span> x {product.amount}</span>
+                {product.price.$numberDecimal} $<span> x {product.amount}</span>
               </p>
             </div>
           ))
@@ -49,11 +41,9 @@ const OrderSumary = ({ onPaymentMethodChange }) => {
             name='paymentMethod'
             id='paymentMethod1'
             value='delivery'
-            onChange={handlePaymentMethodChange}
+            onChange={handlePayMethod}
           />
-          <label htmlFor='paymentMethod1'>
-            Cash on delivery
-          </label>
+          <label htmlFor='paymentMethod1'>Cash on delivery</label>
         </div>
         <div className='payment-item'>
           <input
@@ -61,11 +51,9 @@ const OrderSumary = ({ onPaymentMethodChange }) => {
             name='paymentMethod'
             id='paymentMethod2'
             value='bank_transfer'
-            onChange={handlePaymentMethodChange}
+            onChange={handlePayMethod}
           />
-          <label htmlFor='paymentMethod2'>
-            Bank transfer
-          </label>
+          <label htmlFor='paymentMethod2'>Bank transfer</label>
         </div>
         <div className='payment-item'>
           <input
@@ -73,16 +61,13 @@ const OrderSumary = ({ onPaymentMethodChange }) => {
             name='paymentMethod'
             id='paymentMethod3'
             value='credit_card'
-            onChange={handlePaymentMethodChange}
+            onChange={handlePayMethod}
           />
-          <label htmlFor='paymentMethod3'>
-            Pay by credit card
-          </label>
+          <label htmlFor='paymentMethod3'>Pay by credit card</label>
         </div>
       </div>
       <p className='payment-total'>
-        Total order value:{' '}
-        <span>{appValue.totalPrice} $</span>
+        Total order value: <span>{appValue.totalPrice} $</span>
       </p>
     </div>
   );
