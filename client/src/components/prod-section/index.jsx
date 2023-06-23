@@ -1,14 +1,12 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../../App.js';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { BsArrowRight } from 'react-icons/bs';
 import { BsBag } from 'react-icons/bs';
 import StarRating from '../starRating/index.jsx';
-import getProd from './getProd.js';
 import './style.css';
 
 const ProductsSection = (props) => {
-  const navigate = useNavigate();
   const appValue = useContext(AppContext);
   const viewProducts = appValue.data
     .sort(() => Math.random() - 0.5)

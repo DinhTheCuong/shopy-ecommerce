@@ -6,7 +6,7 @@ const createOrder = async (prodInfo, options) => {
   const AuthStr = `Bearer ${USER_TOKEN}`;
 
   const data = {
-    userOder: USER_ID,
+    userOrder: USER_ID,
     listOrder: [...prodInfo],
   };
 
@@ -19,9 +19,10 @@ const createOrder = async (prodInfo, options) => {
     })
     .then(() => {
       console.log('Order Successfully!');
-      options.navigate('/order', {
+      options.navigate('/', {
         replace: true,
       });
+      options.navigate(0);
     });
 };
 

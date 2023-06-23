@@ -13,6 +13,7 @@ const Checkout = () => {
   const prodInfo = appValue.homeCart.map((prod) => ({
     id: prod._id,
     amount: prod.amount,
+    time: new Date().toLocaleString('vi-VN'),
   }));
   const options = {
     navigate,

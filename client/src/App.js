@@ -33,6 +33,7 @@ function App() {
   const [userData, setUserData] = useState({});
   const [data, setData] = useState([]);
   const [products, setProducts] = useState(data);
+  const [orderData, setOrderData] = useState([]);
 
   let totalPrice = 0;
 
@@ -83,6 +84,8 @@ function App() {
           setUserData,
           products,
           setProducts,
+          orderData,
+          setOrderData,
         }}
       >
         <ScrollToTop />

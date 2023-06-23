@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import logo from '../../assets/images/logo2.png';
 import './style.css';
 import { AppContext } from '../../App.js';
@@ -27,12 +27,14 @@ import getOrderList from '../pages/order-list/getOrderList';
 
 const Header = () => {
   const homeValue = useContext(AppContext);
+
   const handleDelete = (id) => {
     homeValue.setHomeCart(
       homeValue.homeCart.filter((element) => element._id !== id),
       toast.error('Removed from cart!')
     );
   };
+
   const handleOpenSidebar = () => {
     document.getElementById('sidebar').style.display = 'block';
   };
@@ -40,9 +42,11 @@ const Header = () => {
   let numberOfHomeCart = 0;
   homeValue.homeCart.map((ele) => (numberOfHomeCart += ele.amount));
   const user = JSON.parse(localStorage.getItem('user'));
+
   const handleLogout = () => {
     localStorage.removeItem('user');
   };
+
   return (
     <div className='header'>
       <div className='header-tag'>
@@ -159,7 +163,7 @@ const Header = () => {
                   <>
                     <Link
                       to='/order'
-                      onClick={getOrderList}
+                      onClick={() => getOrderList(homeValue.setOrderData)}
                     >
                       <HiOutlineClipboardDocumentList className='user-icon-option' />
                       Order List

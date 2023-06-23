@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const getOrderList = async () => {
+const getOrderList = async (setOrderData) => {
   const res = await axios.get('http://localhost:8000/orders');
-  console.log(res.data);
+  setOrderData(res.data);
 };
 
 export default getOrderList;
