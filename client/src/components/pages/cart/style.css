@@ -143,6 +143,10 @@
   color: #c71616;
 }
 
+.cart-empty .no-buy-img {
+  width: 32%;
+}
+
 @media (max-width: 1024px) {
   .cart-page-item-sub img {
     width: 72px;

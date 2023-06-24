@@ -1,15 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../../../App';
-import StarRating from '../../starRating';
-import './style.css';
 import { BsBag } from 'react-icons/bs';
+import StarRating from '../../starRating';
 import filter from './filterProd';
 import sortProduct from './sort';
+import Pagination from '../../pagination';
+import './style.css';
 
 const AllProducts = () => {
   const appValue = useContext(AppContext);
   const allProducts = appValue.data;
+  const [productsOnPage, setProductsOnPage] = useState([]);
+
+  console.log(productsOnPage);
 
   return (
     <div className='all-products'>
@@ -283,6 +287,7 @@ const AllProducts = () => {
                 </div>
               ))}
         </div>
+        <Pagination setProductsOnPage={setProductsOnPage} />
       </div>
     </div>
   );

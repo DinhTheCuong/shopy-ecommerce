@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 import './style.css';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../../../App';
+import noBuy from '../../../assets/images/placeholder/no-order.png';
 
 const Cart = () => {
   const appValue = useContext(AppContext);
@@ -25,7 +26,13 @@ const Cart = () => {
         </div>
         <div className='cart-page-list'>
           {cart.length === 0 ? (
-            <div className='cart-empty'>Empty</div>
+            <div className='cart-empty'>
+              <img
+                src={noBuy}
+                alt=''
+                className='no-buy-img'
+              />
+            </div>
           ) : (
             cart.map((product) => (
               <div

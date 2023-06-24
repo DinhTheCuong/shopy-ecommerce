@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { AppContext } from '../../App';
 import './style.css';
+import noOrder from '../../assets/images/placeholder/no-pay.png';
 
 const OrderSumary = ({ onPayMethod }) => {
   const appValue = useContext(AppContext);
@@ -18,7 +19,13 @@ const OrderSumary = ({ onPayMethod }) => {
       <p className='order-sumary-title'>Order</p>
       <div className='order-list'>
         {products.length === 0 ? (
-          <div className='cart-empty'>Please buy something!</div>
+          <div className='cart-empty'>
+            <img
+              className='no-pay-img'
+              src={noOrder}
+              alt=''
+            />
+          </div>
         ) : (
           products.map((product) => (
             <div
