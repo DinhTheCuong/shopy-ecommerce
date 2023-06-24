@@ -372,6 +372,10 @@
   margin: 40px 0;
 }
 
+.cart-empty-img {
+  width: 160px;
+}
+
 /* header navigation */
 .header-navbar {
   /* background-color: var(--primary-color); */

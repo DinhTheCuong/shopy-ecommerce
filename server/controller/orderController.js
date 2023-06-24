@@ -1,9 +1,10 @@
 const orderController = (router, middleware, service) => {
   const orderService = service;
 
-  router.get("/", async (req, res) => {
+  router.get("/:id", async (req, res) => {
+    const { id } = req.params;
     try {
-      const order = await orderService.getAllOrder();
+      const order = await orderService.getOrder(id);
       res.status(200).json(order);
     } catch (error) {
       res.json({

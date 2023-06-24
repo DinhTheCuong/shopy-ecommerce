@@ -1,11 +1,10 @@
 import './style.css';
 import { useContext, useState, useEffect } from 'react';
 import { AppContext } from '../../../App.js';
-import getOrderList from './getOrderList';
+import noPay from '../../../assets/images/placeholder/no-pay.png';
 
 const Order = () => {
   const [confirmUser, setConfirmUser] = useState(false);
-  const [orders, setOrders] = useState([]);
 
   const oL = [];
 
@@ -20,8 +19,8 @@ const Order = () => {
   useEffect(() => {
     if (userId.map((u) => u._id === USER_ID)) {
       setConfirmUser(true);
-      setOrders(oL);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -59,7 +58,14 @@ const Order = () => {
             </div>
           ))
         ) : (
-          <div>Haven't bought anything yet!</div>
+          <div className='no-order'>
+            <img
+              className='no-order-images'
+              src={noPay}
+              alt=''
+            />
+            <p>Haven't bought anything yet!</p>
+          </div>
         )}
       </div>
     </div>

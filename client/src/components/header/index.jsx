@@ -24,6 +24,7 @@ import { toast } from 'react-toastify';
 import SearchBar from '../searchBar/index.jsx';
 import filter from '../pages/all-products/filterProd.js';
 import getOrderList from '../pages/order-list/getOrderList';
+import noBuy from '../../assets/images/placeholder/no-order.png';
 
 const Header = () => {
   const homeValue = useContext(AppContext);
@@ -46,6 +47,8 @@ const Header = () => {
   const handleLogout = () => {
     localStorage.removeItem('user');
   };
+
+  const USER = JSON.parse(localStorage.getItem('user'));
 
   return (
     <div className='header'>
@@ -96,7 +99,13 @@ const Header = () => {
               <div className='cart-list'>
                 <div className='cart-prod-section'>
                   {homeValue.homeCart.length === 0 ? (
-                    <div className='cart-empty'>Empty</div>
+                    <div className='cart-empty'>
+                      <img
+                        className='cart-empty-img'
+                        src={noBuy}
+                        alt=''
+                      />
+                    </div>
                   ) : (
                     homeValue.homeCart.map((element) => (
                       <div
@@ -163,7 +172,13 @@ const Header = () => {
                   <>
                     <Link
                       to='/order'
-                      onClick={() => getOrderList(homeValue.setOrderData)}
+                      onClick={() =>
+                        getOrderList(
+                          USER.id,
+                          USER.access_token,
+                          homeValue.setOrderData
+                        )
+                      }
                     >
                       <HiOutlineClipboardDocumentList className='user-icon-option' />
                       Order List

@@ -92,3 +92,20 @@
 .order-page__item-date {
   color: var(--text-color);
 }
+
+.no-order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no-order p {
+  font-size: 20px;
+  color: var(--default-after-color);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.no-order-images {
+  width: 56%;
+}

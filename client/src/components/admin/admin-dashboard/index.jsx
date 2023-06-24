@@ -1,5 +1,6 @@
 import './style.css';
 import { Link } from 'react-router-dom';
+import noData from '../../../assets/images/placeholder/no-data.png';
 const AdminDashboard = () => {
   return (
     <div className='admin-dashboard'>
@@ -10,6 +11,13 @@ const AdminDashboard = () => {
       >
         Add Product
       </Link>
+      <div className='no-order'>
+        <img
+          src={noData}
+          alt=''
+          className='no-order-images'
+        />
+      </div>
     </div>
   );
 };

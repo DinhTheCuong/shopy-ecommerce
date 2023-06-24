@@ -1,9 +1,9 @@
 const orderModel = require("../models/oderModel");
 const orderService = {};
 
-orderService.getAllOrder = async (req, res) => {
+orderService.getOrder = async (userId) => {
   const order = await orderModel
-    .find()
+    .find({ userOrder: { _id: userId } })
     .populate("userOrder", "email")
     .populate("listOrder");
   if (!order) {
