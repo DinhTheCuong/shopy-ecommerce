@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../../../App';
 import { BsBag } from 'react-icons/bs';
@@ -7,13 +7,16 @@ import filter from './filterProd';
 import sortProduct from './sort';
 import Pagination from '../../pagination';
 import './style.css';
+import onPage from '../../pagination/onPage';
 
 const AllProducts = () => {
   const appValue = useContext(AppContext);
   const allProducts = appValue.data;
   const [productsOnPage, setProductsOnPage] = useState([]);
 
-  console.log(productsOnPage);
+  useEffect(() => {
+    onPage('on', 1, setProductsOnPage);
+  }, []);
 
   return (
     <div className='all-products'>
@@ -184,13 +187,13 @@ const AllProducts = () => {
       <div className='all-products-section'>
         <div className='all-prod-filter'>
           <div className='quantity-result'>
-            Showing{' '}
+            Total{' '}
             <span>
               {appValue.products.length === 0
                 ? allProducts.length
                 : appValue.products.length}
             </span>{' '}
-            results
+            products
           </div>
           <div className='sort'>
             <p>Sort by:</p>
@@ -216,7 +219,7 @@ const AllProducts = () => {
         </div>
         <div className='all-prod-view'>
           {appValue.products.length === 0
-            ? allProducts.map((prod) => (
+            ? productsOnPage.map((prod) => (
                 <div
                   className='product-card'
                   key={prod._id}

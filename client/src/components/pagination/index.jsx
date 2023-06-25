@@ -9,6 +9,7 @@ const Pagination = (props) => {
           type='radio'
           name='toggle'
           id='toggle-1'
+          defaultChecked
           onChange={(event) =>
             onPage(event.target.value, 1, props.setProductsOnPage)
           }
@@ -24,7 +25,9 @@ const Pagination = (props) => {
           type='radio'
           name='toggle'
           id='toggle-2'
-          onChange={(event) => onPage(event.target.value, 2)}
+          onChange={(event) =>
+            onPage(event.target.value, 2, props.setProductsOnPage)
+          }
         />
         <label
           className='label-2'
@@ -37,7 +40,9 @@ const Pagination = (props) => {
           type='radio'
           name='toggle'
           id='toggle-3'
-          onChange={(event) => onPage(event.target.value, 3)}
+          onChange={(event) =>
+            onPage(event.target.value, 3, props.setProductsOnPage)
+          }
         />
         <label
           className='label-3'

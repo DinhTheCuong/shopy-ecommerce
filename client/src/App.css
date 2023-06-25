@@ -17,6 +17,10 @@
   font-family: 'Inter', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .App {
   font-size: 16px;
   background-color: #f5f5f5;
